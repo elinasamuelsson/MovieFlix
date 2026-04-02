@@ -1,0 +1,47 @@
+#moviesida {
+    background-color: black;
+    padding: 1vw;
+}
+
+#nav {
+    width: 1366x;
+    height: 50px;
+    color: white;
+}
+
+#hero {
+    padding-bottom: 30px;
+    font-family: Arial, sans-serif;
+    color:white;
+}
+
+#rubrik2 {
+    color: gray;
+}
+
+.slidearea {
+    padding-bottom: 10px;
+
+}
+
+.slider {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.underrubrik {
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.item {
+  min-width: 200px;
+  height: 350px;
+  background: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}

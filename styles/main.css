@@ -1,6 +1,7 @@
 /*exempel på hur import fungerar*/
 @import url(typography.css);
 @import url(card.css);
+@import url(movies.css);
 
 .hero {
     background-image: linear-gradient(to top, black, transparent), url("../assets/hero.jpg");
