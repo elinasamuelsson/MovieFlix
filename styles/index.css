@@ -1,0 +1,10 @@
+@import url(hero.css);
+
+main {
+    margin-top: 700px;
+}
+
+main > section {
+    display: flex;
+    gap: 20px;
+}
