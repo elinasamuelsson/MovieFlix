@@ -3,16 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./styles/layout.css">
-        <link rel="stylesheet" href="./styles/header.css">
         <link rel="stylesheet" href="./styles/main.css">
-        <link rel="stylesheet" href="./styles/card.css">
-        <link rel="stylesheet" href="./styles/typography.css">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="./styles/index.css">
         <title>MovieFlix</title>
     </head>
+
     <body>
         <div id="page">
+            <!-- HEADER -->
             <header>
                 <div>
                     <a class="logo" href="./index.html">MOVIEFLIX</a>
@@ -34,9 +32,10 @@
                 </div>
             </header>
 
+            <!-- HERO SECTIOn -->
             <section class="hero">
-                <h2>Squid Game</h2>
                 <div class="hero-meta">
+                    <h1 class="movie-title">Squid Game</h1>
                     <span class="movie-match">98% Match</span>
                     <span class="movie-released-year">2026</span>
                     <span class="movie-age-rating">PG-13</span>
@@ -61,6 +60,7 @@
                 </div>
             </section>
 
+            <!-- MAIN AND LOTS OF CARDS -->
             <main>
                 <h3>Trending Now</h3>
                 <section class="trending-now">
@@ -194,41 +194,50 @@
                     </div>
                 </section>
 
+                <h3>Recommended For You</h3>
                 <section class="recommended">
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+                    <div class="card" style="background-image: url('./assets/trending-images/Jujutsu_kaisen.png');">
+                        <p class="movie-title">Jujutsu Kaisen</p>
+                        <p class="movie-info">2020 • PG-13</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/trending-images/Peaky_Blinders_-_The_Immortal_Man_poster.png');">
+                        <p class="movie-title">Peaky Blinders: The Immortal Man</p>
+                        <p class="movie-info">2024 • R</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/action-and-adventure-images/Vikings\ Valhalla_.png');">
+                        <p class="movie-title">Vikings: Valhalla</p>
+                        <p class="movie-info">2022 • PG-16</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/scifi-and-fantasy/Westworld.png');">
+                        <p class="movie-title">Westworld</p>
+                        <p class="movie-info">2016 • PG-17</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/action-and-adventure-images/Legacy_of_Monsters_Poster.png');">
+                        <p class="movie-title">Monarch: Legacy of Monsters</p>
+                        <p class="movie-info">2023 • PG-13</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/drama-images/The\ guilty.jpg');">
+                        <p class="movie-title">The Guilty</p>
+                        <p class="movie-info">2021 • PG-16</p>
                     </div>
                 </section>
             </main>
 
-            <footer></footer>
+            <footer>
+                <nav>
+                    <a href="#">Audio and Subtitles</a>
+                    <a href="#">Help Center</a>
+                    <a href="#">Gift Cards</a>
+                    <a href="#">Media Center</a>
+                </nav>
+
+                <p class="copyright">© 2026 MovieFlix, Inc.</p>
+            </footer>
         </div>
     </body>
 </html>

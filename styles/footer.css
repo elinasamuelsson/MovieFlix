@@ -1,0 +1,21 @@
+
+footer {
+    margin: 3em;
+    color: hsl(206, 41%, 33%);
+}
+
+footer > nav > a {
+    text-decoration: none;
+    color: #376282;
+    margin-right: 30px;
+    transition: all .3s;
+}
+
+footer > nav > a:hover {
+    color: hsl(206, 41%, 76%);
+}
+
+footer > p {
+    margin-top: 30px;
+    font-size: smaller;
+}

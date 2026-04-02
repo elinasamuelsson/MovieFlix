@@ -19,6 +19,14 @@ header > div {
     align-items: center;
 }
 
+header > div:first-child {
+    margin-left: 3em;
+}
+
+header > div:last-child {
+    margin-right: 3em;
+}
+
 header > div > .logo {
     color: red;
     letter-spacing: 1px;
