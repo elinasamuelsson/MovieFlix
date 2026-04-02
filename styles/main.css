@@ -2,6 +2,7 @@
 @import url(typography.css);
 @import url(card.css);
 @import url(movies.css);
+/* HERO */
 
 .hero {
     background-image: linear-gradient(to top, black, transparent), url("../assets/hero.jpg");
@@ -15,7 +16,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    z-index: -1;
+    z-index: 1;
     overflow: hidden;
 }
 
@@ -37,16 +38,53 @@
     padding: 2px 8px;
 }
 
-.hero > .hero-btns > button:first-child {
-    font-size: xx-large;
+.hero > .hero-btns {
+    display: flex;
+    gap: 20px;
 }
 
-.hero > .hero-btns > button:first-child > svg {
-    scale: 0.7;
+.hero > .hero-btns > button {
+    font-size: large;
+    padding: 10px 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s;
 }
+
+.hero > .hero-btns > button > svg {
+    scale: 1;
+    height: 24px;
+    width: 24px;
+    margin-right: 10px;
+}
+
+.hero > .hero-btns > button:first-child {
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.hero > .hero-btns > button:first-child:hover {
+    background-color: hsl(0, 0%, 70%);
+}
+
+.hero > .hero-btns > button:last-child {
+    background-color: #3e414e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.hero > .hero-btns > button:last-child:hover {
+    background-color: hsl(229, 11%, 27%, 0.7);
+}
+
+/* MAIN */
 
 main {
-    margin-top: 700px;
+    margin-top: 800px;
 }
 
 main > section {

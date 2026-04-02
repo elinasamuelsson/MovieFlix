@@ -17,7 +17,8 @@
                 <div>
                     <a class="logo" href="./index.html">MOVIEFLIX</a>
                     <nav>
-                        <a href="./index.html">Home</a>
+                        <!-- Lägg active-nav class till era respektive html-->
+                        <a href="./index.html" class="active-nav">Home</a>
                         <a href="./tvshows.html">TV Shows</a>
                         <a href="./movies.html">Movies</a>
                         <a href="./newreleases.html">New & Popular</a>
@@ -50,7 +51,13 @@
                         </svg>
                         Play
                     </button>
-                    <button>More Info</button>
+                    <button>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                            <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
+                        </svg>
+                        More Info
+                    </button>
                 </div>
             </section>
 
@@ -58,138 +65,132 @@
                 <h3>Trending Now</h3>
                 <section class="trending-now">
                     <div class="card" style="background-image: url('./assets/trending-images/Detective\ Hole.png');">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+                        <p class="movie-title">Detective Hole</p>
+                        <p class="movie-info">2024 • PG-16</p>
                     </div>
 
                     <div class="card" style="background-image: url('./assets/trending-images/Jujutsu_kaisen.png');">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+                        <p class="movie-title">Jujutsu Kaisen</p>
+                        <p class="movie-info">2020 • PG-13</p>
                     </div>
 
                     <div class="card" style="background-image: url('./assets/trending-images/Peaky_Blinders_-_The_Immortal_Man_poster.png');">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+                        <p class="movie-title">Peaky Blinders: The Immortal Man</p>
+                        <p class="movie-info">2024 • R</p>
                     </div>
 
                     <div class="card" style="background-image: url('./assets/trending-images/The\ Pitt.png');">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+                        <p class="movie-title">The Pitt</p>
+                        <p class="movie-info">2024 • PG-156</p>
                     </div>
 
                     <div class="card" style="background-image: url('./assets/trending-images/War_Machine.jpeg.png');">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+                        <p class="movie-title">War Machinee</p>
+                        <p class="movie-info">2024 • R</p>
                     </div>
 
                     <div class="card" style="background-image: url('./assets/trending-images/Zootopia.png');">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+                        <p class="movie-title">Detective Hole</p>
+                        <p class="movie-info">2024 • PG-8</p>
                     </div>
                 </section>
 
+                <h3>Action & Adventure</h3>
                 <section class="action-and-anventure">
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+                    <div class="card" style="background-image: url('./assets/action-and-adventure-images/Casino\ Royale.png');">
+                        <p class="movie-title">Casino Royale</p>
+                        <p class="movie-info">2006 • PG-14</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/action-and-adventure-images/Legacy_of_Monsters_Poster.png');">
+                        <p class="movie-title">Monarch: Legacy of Monsters</p>
+                        <p class="movie-info">2023 • PG-13</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/action-and-adventure-images/One\ Piece.png');">
+                        <p class="movie-title">One Piece</p>
+                        <p class="movie-info">2023 • PG-11</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/action-and-adventure-images/The\ Avatar.png');">
+                        <p class="movie-title">Avatar</p>
+                        <p class="movie-info">2009 • PG-13</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/action-and-adventure-images/The\ Lost\ City\ Poster.png');">
+                        <p class="movie-title">The Lost City</p>
+                        <p class="movie-info">2022 • PG-13</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/action-and-adventure-images/Vikings\ Valhalla_.png');">
+                        <p class="movie-title">Vikings: Valhalla</p>
+                        <p class="movie-info">2022 • PG-16</p>
                     </div>
                 </section>
 
+                <h3>Sci-Fi & Fantasy</h3>
                 <section class="scifi-and-fantasy">
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+                    <div class="card" style="background-image: url('./assets/scifi-and-fantasy/3\ Body\ Problem.png');">
+                        <p class="movie-title">3 Body Problem</p>
+                        <p class="movie-info">2024 • PG-15</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/scifi-and-fantasy/Donnie\ Darko.png');">
+                        <p class="movie-title">Donnie Darko</p>
+                        <p class="movie-info">2001 • PG-17</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/scifi-and-fantasy/Inception.png');">
+                        <p class="movie-title">Inception</p>
+                        <p class="movie-info">2010 • PG-14</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/scifi-and-fantasy/The_Endless.png');">
+                        <p class="movie-title">The Endless</p>
+                        <p class="movie-info">2018 • PG-16</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/scifi-and-fantasy/The_Sandman.png');">
+                        <p class="movie-title">The Sandman</p>
+                        <p class="movie-info">2022 • PG-15</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/scifi-and-fantasy/Westworld.png');">
+                        <p class="movie-title">Westworld</p>
+                        <p class="movie-info">2016 • PG-17</p>
                     </div>
                 </section>
 
-                <section class="Drama">
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+                <h3>Drama</h3>
+                <section class="drama">
+                    <div class="card" style="background-image: url('./assets/drama-images/Mad\ men.jpg');">
+                        <p class="movie-title">Mad Men</p>
+                        <p class="movie-info">2007 • PG-15</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/drama-images/Steve.jpg');">
+                        <p class="movie-title">Steve</p>
+                        <p class="movie-info">2025 • PG-15</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/drama-images/The\ boys.jpg');">
+                        <p class="movie-title">The Boys</p>
+                        <p class="movie-info">2016 • R18</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/drama-images/The\ guilty.jpg');">
+                        <p class="movie-title">The Guilty</p>
+                        <p class="movie-info">2021 • PG-16</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/drama-images/The\ last\ bus.jpg');">
+                        <p class="movie-title">The Lost Bus</p>
+                        <p class="movie-info">2016 • PG-14</p>
                     </div>
-                    <div class="card">
-                        <p class="movie-title"></p>
-                        <span class="movie-released-year"></span>
-                        <span class="movie-age-rating"></span>
+
+                    <div class="card" style="background-image: url('./assets/drama-images/True\ detective.jpg');">
+                        <p class="movie-title">True Detective</p>
+                        <p class="movie-info">2014 • PG-16</p>
                     </div>
                 </section>
 
