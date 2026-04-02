@@ -1,0 +1,52 @@
+body {
+    background-color: black;
+    color: gray;
+}
+
+h2, h3 {
+    color: white;
+}
+
+.rating {
+    display: inline;
+}
+
+svg {
+    vertical-align: middle;
+}
+
+.profile-image {
+    background-color: red;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+}
+
+.user-profile {
+    display: flex;
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.stats-container > div {
+    padding-right: 8px;
+    max-width: 100px;
+}
+
+.genre-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.genre-container > p {
+    padding: 6px 8px 6px 8px;
+    margin-right: 8px;
+    background-color: rgba(255, 0, 0, 0.25);
+    color: red;
+
+    border-radius: 16px;
+}
