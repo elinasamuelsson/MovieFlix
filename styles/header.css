@@ -1,0 +1,44 @@
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, black, transparent);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    padding: 20px 0;
+}
+
+header > div {
+    display: flex;
+    align-items: center;
+}
+
+header > div > .logo {
+    color: red;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+header > div > nav > a {
+    text-decoration: none;
+    margin: 0 10px;
+    color: var(--primary-text-color);
+    transition: all .2s;
+    color: hsl(0, 0%, 85%);
+}
+
+header > div > nav > a:first-child {
+    margin-left: 20px;
+}
+
+header > div > nav > a:hover {
+    color: white;
+}
+
+header > div > svg {
+    shape-rendering: crispEdges;
+}
