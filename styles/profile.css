@@ -3,10 +3,17 @@ body {
 }
 
 h1,
-h2,
-h3 {
+h2 {
     color: white;
     margin-bottom: 2px;
+}
+
+h3 {
+    color: gray;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 2px;
+
 }
 
 p {
@@ -31,7 +38,7 @@ svg {
 .user-profile {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 25px;
 }
 
 .stats-container {
@@ -41,6 +48,11 @@ svg {
 
 .stats-container > div {
     max-width: 100px;
+}
+
+.stats-container > div > p {
+    font-size: 16px;
+    color: white;
 }
 
 .genre-container {

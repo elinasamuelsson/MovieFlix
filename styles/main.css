@@ -1,6 +1,7 @@
 @import url(typography.css);
 @import url(card.css);
 @import url(header.css);
+@import url(footer.css);
 
 body {
     background-color: black;
