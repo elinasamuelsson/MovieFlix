@@ -1,0 +1,71 @@
+  #tvshowsida {
+    background-color: black;
+  }
+  
+  #hero {
+    padding: 30px 0 30px 3em;
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+  
+  #hero h4 {
+    color: gray;
+  }
+  
+  .slidearea {
+    padding: 0 3em 20px 3em;
+  }
+  
+  .slider {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+  }
+  
+  .underrubrik {
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+  
+  .item {
+    min-width: 200px;
+    height: 350px;
+    background: #333;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+  }
+
+  .item:hover {
+    transform: scale(1.05);
+  }
+
+  .item-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 10px 10px 10px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  }
+
+  .item-title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+  }
+
+  .item-meta {
+    margin: 3px 0 0 0;
+    font-size: 12px;
+    color: #aaa;
+    font-family: Arial, sans-serif;
+  }
+  

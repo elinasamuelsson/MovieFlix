@@ -1,13 +1,19 @@
 body {
-    background-color: black;
     color: gray;
 }
 
 h1,
-h2,
-h3 {
+h2 {
     color: white;
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: gray;
+    font-size: 14px;
+    font-weight: 400;
     margin-bottom: 2px;
+
 }
 
 p {
@@ -32,7 +38,7 @@ svg {
 .user-profile {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 25px;
 }
 
 .stats-container {
@@ -41,7 +47,12 @@ svg {
 }
 
 .stats-container > div {
-    max-width: 100px;
+    max-width: 90px;
+}
+
+.stats-container > div > p {
+    font-size: 14px;
+    color: white;
 }
 
 .genre-container {
@@ -53,7 +64,9 @@ svg {
     padding: 6px 8px 6px 8px;
     background-color: rgba(255, 0, 0, 0.25);
     color: red;
+    font-size: 14px;
     border-radius: 16px;
+    
 }
 
 .temporary-container {
@@ -62,8 +75,10 @@ svg {
     gap: 8px;
 }
 
-.temporary-card {
-    background-color: gray;
-    width: 275px;
-    height: 150px;
+.card > svg {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    opacity: 100;
+    color: red;
 }
