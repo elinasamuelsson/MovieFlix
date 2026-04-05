@@ -36,7 +36,9 @@
             <!--användarens namn, profildata, statistik etc-->
             <div class="user-container">
                 <div class="user-profile">
-                    <div class="profile-image"></div>
+                    <div class="profile-image">
+                        <p>MS</p>
+                    </div>
                     <div>
                         <h1>
                             Milo Söderberg
@@ -115,7 +117,7 @@
                 </div>
             </div>
             <div>
-                <h3>Favorite Genres</h3>
+                <h3 class="genre-header">Favorite Genres</h3>
                 <div class="genre-container">
                     <p>Action</p>
                     <p>Comedy</p>
@@ -139,65 +141,230 @@
                 </svg>
                 Favorite Movies
             </h2>
-            <div class="temporary-container">
-                <div
-                    class="card"
-                    style="
-                        background-image: url(&quot;./assets/action-and-adventure-images/One\ Piece.png&quot;);
-                    ">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        height="24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                        stroke-linejoin="round">
-                        <path
-                            d="M12,21 C10,19 2,14 2,8 C2,4 5,2 8,3 C10,4 11,6 12,8 C13,6 14,4 16,3 C19,2 22,4 22,8 C22,14 14,19 12,21 Z" />
-                    </svg>
+            <div class="container">
+                <div class="card-wrapper">
+                    <div
+                        class="card"
+                        style="
+                            background-image: url(&quot;./assets/action-and-adventure-images/One\ Piece.png&quot;);
+                        ">
+                        <svg
+                            class="heart-svg"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            height="24"
+                            fill="currentColor"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linejoin="round">
+                            <path
+                                d="M12,21 C10,19 2,14 2,8 C2,4 5,2 8,3 C10,4 11,6 12,8 C13,6 14,4 16,3 C19,2 22,4 22,8 C22,14 14,19 12,21 Z" />
+                        </svg>
+                        <div>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#ffffff" />
+                                    <polygon
+                                        points="10,7 10,17 18,12"
+                                        fill="black" /></svg
+                            ></a>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40"
+                                    fill="none"
+                                    stroke="#ffffff"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#e63946"
+                                        stroke="none" />
+                                    <line x1="7" y1="9" x2="17" y2="9" />
+                                    <line x1="10" y1="9" x2="10" y2="7" />
+                                    <line x1="14" y1="9" x2="14" y2="7" />
+                                    <rect
+                                        x="8"
+                                        y="10"
+                                        width="8"
+                                        height="8"
+                                        rx="1" />
+                                    <line x1="10" y1="12" x2="10" y2="16" />
+                                    <line
+                                        x1="14"
+                                        y1="12"
+                                        x2="14"
+                                        y2="16" /></svg
+                            ></a>
+                        </div>
+                    </div>
+                    <p class="movie-title">One Piece</p>
+                    <p class="movie-info">2023 • TV-14</p>
                 </div>
-                <div
-                    class="card"
-                    style="
-                        background-image: url(&quot;./assets/trending-images/Jujutsu_kaisen.png&quot;);
-                    ">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        height="24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                        stroke-linejoin="round">
-                        <path
-                            d="M12,21 C10,19 2,14 2,8 C2,4 5,2 8,3 C10,4 11,6 12,8 C13,6 14,4 16,3 C19,2 22,4 22,8 C22,14 14,19 12,21 Z" />
-                    </svg>
+                <div class="card-wrapper">
+                    <div
+                        class="card"
+                        style="
+                            background-image: url(&quot;./assets/trending-images/Jujutsu_kaisen.png&quot;);
+                        ">
+                        <svg
+                            class="heart-svg"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            height="24"
+                            fill="currentColor"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linejoin="round">
+                            <path
+                                d="M12,21 C10,19 2,14 2,8 C2,4 5,2 8,3 C10,4 11,6 12,8 C13,6 14,4 16,3 C19,2 22,4 22,8 C22,14 14,19 12,21 Z" />
+                        </svg>
+                        <div>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#ffffff" />
+                                    <polygon
+                                        points="10,7 10,17 18,12"
+                                        fill="black" /></svg
+                            ></a>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40"
+                                    fill="none"
+                                    stroke="#ffffff"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#e63946"
+                                        stroke="none" />
+                                    <line x1="7" y1="9" x2="17" y2="9" />
+                                    <line x1="10" y1="9" x2="10" y2="7" />
+                                    <line x1="14" y1="9" x2="14" y2="7" />
+                                    <rect
+                                        x="8"
+                                        y="10"
+                                        width="8"
+                                        height="8"
+                                        rx="1" />
+                                    <line x1="10" y1="12" x2="10" y2="16" />
+                                    <line
+                                        x1="14"
+                                        y1="12"
+                                        x2="14"
+                                        y2="16" /></svg
+                            ></a>
+                        </div>
+                    </div>
+                    <p class="movie-title">Jujutsu Kaisen</p>
+                    <p class="movie-info">2020 • TV-14</p>
                 </div>
-                <div
-                    class="card"
-                    style="
-                        background-image: url(&quot;./assets/action-and-adventure-images/The\ Lost\ City\ Poster.png&quot;);
-                    ">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        height="24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2.5"
-                        stroke-linejoin="round">
-                        <path
-                            d="M12,21 C10,19 2,14 2,8 C2,4 5,2 8,3 C10,4 11,6 12,8 C13,6 14,4 16,3 C19,2 22,4 22,8 C22,14 14,19 12,21 Z" />
-                    </svg>
+                <div class="card-wrapper">
+                    <div
+                        class="card"
+                        style="
+                            background-image: url(&quot;./assets/action-and-adventure-images/The\ Lost\ City\ Poster.png&quot;);
+                        ">
+                        <svg
+                            class="heart-svg"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            height="24"
+                            fill="currentColor"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linejoin="round">
+                            <path
+                                d="M12,21 C10,19 2,14 2,8 C2,4 5,2 8,3 C10,4 11,6 12,8 C13,6 14,4 16,3 C19,2 22,4 22,8 C22,14 14,19 12,21 Z" />
+                        </svg>
+                        <div>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#ffffff" />
+                                    <polygon
+                                        points="10,7 10,17 18,12"
+                                        fill="black" /></svg
+                            ></a>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40"
+                                    fill="none"
+                                    stroke="#ffffff"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#e63946"
+                                        stroke="none" />
+                                    <line x1="7" y1="9" x2="17" y2="9" />
+                                    <line x1="10" y1="9" x2="10" y2="7" />
+                                    <line x1="14" y1="9" x2="14" y2="7" />
+                                    <rect
+                                        x="8"
+                                        y="10"
+                                        width="8"
+                                        height="8"
+                                        rx="1" />
+                                    <line x1="10" y1="12" x2="10" y2="16" />
+                                    <line
+                                        x1="14"
+                                        y1="12"
+                                        x2="14"
+                                        y2="16" /></svg
+                            ></a>
+                        </div>
+                    </div>
+                    <p class="movie-title">The Lost City</p>
+                    <p class="movie-info">2022 • PG-13</p>
                 </div>
             </div>
         </section>
         <section>
-            <h2>
+            <h2 class="list-header">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -209,22 +376,615 @@
                     stroke-linejoin="round"
                     stroke-linecap="round">
                     <g transform="translate(12,12) rotate(45)">
-                        <!-- top flange -->
                         <rect x="-5" y="-9" width="10" height="3" rx="1" />
-                        <!-- spool body -->
                         <rect x="-2.5" y="-6" width="5" height="7" rx="0.5" />
-                        <!-- bottom flange -->
                         <rect x="-5" y="1" width="10" height="3" rx="1" />
-                        <!-- needle -->
                         <line x1="0" y1="4" x2="0" y2="14" />
                     </g>
                 </svg>
                 My list
             </h2>
-            <div class="temporary-container">
-                <div class="temporary-card"></div>
-                <div class="temporary-card"></div>
-                <div class="temporary-card"></div>
+            <div class="container">
+                <div class="card-wrapper">
+                    <div
+                        class="card"
+                        style="
+                            background-image: url(&quot;./assets/tvshows-images/pitt.webp&quot;);
+                        ">
+                        <div>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#ffffff" />
+                                    <polygon
+                                        points="10,7 10,17 18,12"
+                                        fill="black" /></svg
+                            ></a>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40"
+                                    fill="none"
+                                    stroke="#ffffff"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#e63946"
+                                        stroke="none" />
+                                    <line x1="7" y1="9" x2="17" y2="9" />
+                                    <line x1="10" y1="9" x2="10" y2="7" />
+                                    <line x1="14" y1="9" x2="14" y2="7" />
+                                    <rect
+                                        x="8"
+                                        y="10"
+                                        width="8"
+                                        height="8"
+                                        rx="1" />
+                                    <line x1="10" y1="12" x2="10" y2="16" />
+                                    <line
+                                        x1="14"
+                                        y1="12"
+                                        x2="14"
+                                        y2="16" /></svg
+                            ></a>
+                        </div>
+                    </div>
+                    <p class="movie-title">The Pitt</p>
+                    <p class="movie-info">2024 • PG-16</p>
+                </div>
+                <div class="card-wrapper">
+                    <div
+                        class="card"
+                        style="
+                            background-image: url(&quot;./assets/tvshows-images/fallout.webp&quot;);
+                        ">
+                        <div>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#ffffff" />
+                                    <polygon
+                                        points="10,7 10,17 18,12"
+                                        fill="black" /></svg
+                            ></a>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40"
+                                    fill="none"
+                                    stroke="#ffffff"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#e63946"
+                                        stroke="none" />
+                                    <line x1="7" y1="9" x2="17" y2="9" />
+                                    <line x1="10" y1="9" x2="10" y2="7" />
+                                    <line x1="14" y1="9" x2="14" y2="7" />
+                                    <rect
+                                        x="8"
+                                        y="10"
+                                        width="8"
+                                        height="8"
+                                        rx="1" />
+                                    <line x1="10" y1="12" x2="10" y2="16" />
+                                    <line
+                                        x1="14"
+                                        y1="12"
+                                        x2="14"
+                                        y2="16" /></svg
+                            ></a>
+                        </div>
+                    </div>
+                    <p class="movie-title">Fallout</p>
+                    <p class="movie-info">2024 • TV-MA</p>
+                </div>
+                <div class="card-wrapper">
+                    <div
+                        class="card"
+                        style="
+                            background-image: url(&quot;./assets/tvshows-images/peaky_blinders.jpg&quot;);
+                        ">
+                        <div>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#ffffff" />
+                                    <polygon
+                                        points="10,7 10,17 18,12"
+                                        fill="black" /></svg
+                            ></a>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40"
+                                    fill="none"
+                                    stroke="#ffffff"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#e63946"
+                                        stroke="none" />
+                                    <line x1="7" y1="9" x2="17" y2="9" />
+                                    <line x1="10" y1="9" x2="10" y2="7" />
+                                    <line x1="14" y1="9" x2="14" y2="7" />
+                                    <rect
+                                        x="8"
+                                        y="10"
+                                        width="8"
+                                        height="8"
+                                        rx="1" />
+                                    <line x1="10" y1="12" x2="10" y2="16" />
+                                    <line
+                                        x1="14"
+                                        y1="12"
+                                        x2="14"
+                                        y2="16" /></svg
+                            ></a>
+                        </div>
+                    </div>
+                    <p class="movie-title">Peaky Blinders</p>
+                    <p class="movie-info">2013 • TV-MA</p>
+                </div>
+                <div class="card-wrapper">
+                    <div
+                        class="card"
+                        style="
+                            background-image: url(&quot;./assets/tvshows-images/stranger_things.jpg&quot;);
+                        ">
+                        <div>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#ffffff" />
+                                    <polygon
+                                        points="10,7 10,17 18,12"
+                                        fill="black" /></svg
+                            ></a>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40"
+                                    fill="none"
+                                    stroke="#ffffff"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#e63946"
+                                        stroke="none" />
+                                    <line x1="7" y1="9" x2="17" y2="9" />
+                                    <line x1="10" y1="9" x2="10" y2="7" />
+                                    <line x1="14" y1="9" x2="14" y2="7" />
+                                    <rect
+                                        x="8"
+                                        y="10"
+                                        width="8"
+                                        height="8"
+                                        rx="1" />
+                                    <line x1="10" y1="12" x2="10" y2="16" />
+                                    <line
+                                        x1="14"
+                                        y1="12"
+                                        x2="14"
+                                        y2="16" /></svg
+                            ></a>
+                        </div>
+                    </div>
+                    <p class="movie-title">Stranger Things</p>
+                    <p class="movie-info">2016 • PG-14</p>
+                </div>
+                <div class="card-wrapper">
+                    <div
+                        class="card"
+                        style="
+                            background-image: url(&quot;./assets/tvshows-images/breaking_bad.jpg&quot;);
+                        ">
+                        <div>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#ffffff" />
+                                    <polygon
+                                        points="10,7 10,17 18,12"
+                                        fill="black" /></svg
+                            ></a>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40"
+                                    fill="none"
+                                    stroke="#ffffff"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#e63946"
+                                        stroke="none" />
+                                    <line x1="7" y1="9" x2="17" y2="9" />
+                                    <line x1="10" y1="9" x2="10" y2="7" />
+                                    <line x1="14" y1="9" x2="14" y2="7" />
+                                    <rect
+                                        x="8"
+                                        y="10"
+                                        width="8"
+                                        height="8"
+                                        rx="1" />
+                                    <line x1="10" y1="12" x2="10" y2="16" />
+                                    <line
+                                        x1="14"
+                                        y1="12"
+                                        x2="14"
+                                        y2="16" /></svg
+                            ></a>
+                        </div>
+                    </div>
+                    <p class="movie-title">Breaking Bad</p>
+                    <p class="movie-info">2008 • TV-MA</p>
+                </div>
+                <div class="card-wrapper">
+                    <div
+                        class="card"
+                        style="
+                            background-image: url(&quot;./assets/scifi-and-fantasy/Inception.png&quot;);
+                        ">
+                        <div>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#ffffff" />
+                                    <polygon
+                                        points="10,7 10,17 18,12"
+                                        fill="black" /></svg
+                            ></a>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40"
+                                    fill="none"
+                                    stroke="#ffffff"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#e63946"
+                                        stroke="none" />
+                                    <line x1="7" y1="9" x2="17" y2="9" />
+                                    <line x1="10" y1="9" x2="10" y2="7" />
+                                    <line x1="14" y1="9" x2="14" y2="7" />
+                                    <rect
+                                        x="8"
+                                        y="10"
+                                        width="8"
+                                        height="8"
+                                        rx="1" />
+                                    <line x1="10" y1="12" x2="10" y2="16" />
+                                    <line
+                                        x1="14"
+                                        y1="12"
+                                        x2="14"
+                                        y2="16" /></svg
+                            ></a>
+                        </div>
+                    </div>
+                    <p class="movie-title">Inception</p>
+                    <p class="movie-info">2010 • PG-13</p>
+                </div>
+                <div class="card-wrapper">
+                    <div
+                        class="card"
+                        style="
+                            background-image: url(&quot;./assets/scifi-and-fantasy/The_Endless.png&quot;);
+                        ">
+                        <div>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#ffffff" />
+                                    <polygon
+                                        points="10,7 10,17 18,12"
+                                        fill="black" /></svg
+                            ></a>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40"
+                                    fill="none"
+                                    stroke="#ffffff"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#e63946"
+                                        stroke="none" />
+                                    <line x1="7" y1="9" x2="17" y2="9" />
+                                    <line x1="10" y1="9" x2="10" y2="7" />
+                                    <line x1="14" y1="9" x2="14" y2="7" />
+                                    <rect
+                                        x="8"
+                                        y="10"
+                                        width="8"
+                                        height="8"
+                                        rx="1" />
+                                    <line x1="10" y1="12" x2="10" y2="16" />
+                                    <line
+                                        x1="14"
+                                        y1="12"
+                                        x2="14"
+                                        y2="16" /></svg
+                            ></a>
+                        </div>
+                    </div>
+                    <p class="movie-title">The Endless</p>
+                    <p class="movie-info">2018 • PG-16</p>
+                </div>
+                <div class="card-wrapper">
+                    <div
+                        class="card"
+                        style="
+                            background-image: url(&quot;./assets/action-and-adventure-images/Casino\ Royale.png&quot;);
+                        ">
+                        <div>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#ffffff" />
+                                    <polygon
+                                        points="10,7 10,17 18,12"
+                                        fill="black" /></svg
+                            ></a>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40"
+                                    fill="none"
+                                    stroke="#ffffff"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#e63946"
+                                        stroke="none" />
+                                    <line x1="7" y1="9" x2="17" y2="9" />
+                                    <line x1="10" y1="9" x2="10" y2="7" />
+                                    <line x1="14" y1="9" x2="14" y2="7" />
+                                    <rect
+                                        x="8"
+                                        y="10"
+                                        width="8"
+                                        height="8"
+                                        rx="1" />
+                                    <line x1="10" y1="12" x2="10" y2="16" />
+                                    <line
+                                        x1="14"
+                                        y1="12"
+                                        x2="14"
+                                        y2="16" /></svg
+                            ></a>
+                        </div>
+                    </div>
+                    <p class="movie-title">Casino Royale</p>
+                    <p class="movie-info">2006 • PG-13</p>
+                </div>
+                <div class="card-wrapper">
+                    <div
+                        class="card"
+                        style="
+                            background-image: url(&quot;./assets/trending-images/Zootopia.png&quot;);
+                        ">
+                        <div>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#ffffff" />
+                                    <polygon
+                                        points="10,7 10,17 18,12"
+                                        fill="black" /></svg
+                            ></a>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40"
+                                    fill="none"
+                                    stroke="#ffffff"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#e63946"
+                                        stroke="none" />
+                                    <line x1="7" y1="9" x2="17" y2="9" />
+                                    <line x1="10" y1="9" x2="10" y2="7" />
+                                    <line x1="14" y1="9" x2="14" y2="7" />
+                                    <rect
+                                        x="8"
+                                        y="10"
+                                        width="8"
+                                        height="8"
+                                        rx="1" />
+                                    <line x1="10" y1="12" x2="10" y2="16" />
+                                    <line
+                                        x1="14"
+                                        y1="12"
+                                        x2="14"
+                                        y2="16" /></svg
+                            ></a>
+                        </div>
+                    </div>
+                    <p class="movie-title">Zootopia</p>
+                    <p class="movie-info">2016 • PG</p>
+                </div>
+                <div class="card-wrapper">
+                    <div
+                        class="card"
+                        style="
+                            background-image: url(&quot;./assets/action-and-adventure-images/Legacy_of_Monsters_Poster.png&quot;);
+                        ">
+                        <div>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#ffffff" />
+                                    <polygon
+                                        points="10,7 10,17 18,12"
+                                        fill="black" /></svg
+                            ></a>
+                            <a
+                                ><svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="40"
+                                    height="40"
+                                    fill="none"
+                                    stroke="#ffffff"
+                                    stroke-width="1.5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="12"
+                                        fill="#e63946"
+                                        stroke="none" />
+                                    <line x1="7" y1="9" x2="17" y2="9" />
+                                    <line x1="10" y1="9" x2="10" y2="7" />
+                                    <line x1="14" y1="9" x2="14" y2="7" />
+                                    <rect
+                                        x="8"
+                                        y="10"
+                                        width="8"
+                                        height="8"
+                                        rx="1" />
+                                    <line x1="10" y1="12" x2="10" y2="16" />
+                                    <line
+                                        x1="14"
+                                        y1="12"
+                                        x2="14"
+                                        y2="16" /></svg
+                            ></a>
+                        </div>
+                    </div>
+                    <p class="movie-title">Legacy of Monsters</p>
+                    <p class="movie-info">2026 • PG-14</p>
+                </div>
             </div>
         </section>
     </main>
