@@ -1,0 +1,28 @@
+body {
+    color: white;
+}
+
+h1,
+h2 {
+    margin-bottom: 0;
+}
+
+section {
+    padding-left: 30px;
+}
+
+.hero-new {
+    margin-bottom: 60px;
+}
+
+.hero-new > p {
+    color: gray;
+    font-size: large;
+    margin-top: 8px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
