@@ -1,9 +1,11 @@
+body {
+    margin: 0;
+}
+
 #moviesida {
     background-color: black;
     padding: 1vw;
 }
-
-
 
 #hero {
     padding: 30px 0 30px 3em;
@@ -24,7 +26,6 @@
 .slider {
   display: flex;
   gap: 8px;
-  overflow-x: auto;
 }
 
 .underrubrik {
@@ -41,7 +42,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  
+  transition: all .4s ease;
 }
 
 .item img {
@@ -54,11 +55,24 @@
   
 }
 
-.item:hover {
-    transform: scale(1.05);
-
+.item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, hsl(0, 0%, 0%, 0.7), transparent);
+    pointer-events: none;
+    opacity: 0;
 }
 
+.item:hover {
+    transform: scale(1.05);
+    opacity: 1;
+    z-index: 10;
+}
+
+.item:hover::after {
+    opacity: 1;
+}
 
 .movie-description {
     position: absolute;
@@ -66,9 +80,10 @@
     left: 0;
     padding-left: 10px;
     opacity: 0;
+    z-index: 2;
 }
 
-.movie-description:hover {
+.item:hover > .movie-description {
     opacity: 1;
 }
 
