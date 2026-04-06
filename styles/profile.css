@@ -43,6 +43,12 @@ svg {
 }
 
 .user-container {
+    background: #000000;
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 1) 10%,
+        rgb(30, 0, 0) 100%
+    );
     display: flex;
 }
 
@@ -65,10 +71,6 @@ svg {
     display: flex;
     gap: 15px;
 }
-
-/*.stats-container > div {
-    max-width: 90px;
-}*/
 
 .stats-container > div > p {
     font-size: 14px;
@@ -133,18 +135,10 @@ svg {
 .card > div {
     visibility: hidden;
     z-index: 3;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .card:hover > div {
     visibility: visible;
-}
-
-.card > div a:hover svg {
-  filter: brightness(0.75);
 }
 
 .card-wrapper > p {

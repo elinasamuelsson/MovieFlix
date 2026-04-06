@@ -8,7 +8,7 @@
     align-content: end;
     font-size: small;
     position: relative;
-    transition: all .4s ease;
+    transition: all 0.4s ease;
     cursor: pointer;
     z-index: 1;
 }
@@ -50,4 +50,24 @@
 .card > .movie-info {
     color: hsl(0, 0%, 80%);
     margin-bottom: 10px;
+}
+
+.card > div a:hover svg {
+    filter: brightness(0.75);
+}
+
+.card > .card-buttons {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+
+.card > .card-rating {
+    display: flex;
+    flex-wrap: none;
+    position: absolute;
+    top: 70%;
+    left: 45%;
+    transform: translate(-50%, -50%);
 }
