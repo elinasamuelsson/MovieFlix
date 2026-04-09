@@ -9,18 +9,22 @@ body {
 
 #hero {
     padding: 30px 0 30px 3em;
-    font-family: Arial, sans-serif;
     color:white;
+}
+
+#rubrik1 {
+    font-size:xx-large;
 }
 
 #rubrik2 {
     color: gray;
+    font-size: large;
 }
 
 .slidearea {
     padding-bottom: 10px;
     padding: 30px 0 30px 3em;
-
+    overflow: auto;
 }
 
 .slider {
@@ -29,13 +33,13 @@ body {
 }
 
 .underrubrik {
-    font-family: Arial, sans-serif;
     color: white;
+    font-size:x-large;
 }
 
 .item {
   min-width: 200px;
-  height: 350px;
+  height: 300px;
   background: #333;
   color: white;
   display: flex;
@@ -43,11 +47,12 @@ body {
   justify-content: center;
   position: relative;
   transition: all .4s ease;
+  flex-shrink: 0;
 }
 
 .item img {
-  min-width: 190px;
-  height: 340px;
+  min-width: 200px;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,6 +86,7 @@ body {
     padding-left: 10px;
     opacity: 0;
     z-index: 2;
+    font-size: smaller;
 }
 
 .item:hover > .movie-description {
