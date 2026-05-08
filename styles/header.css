@@ -52,19 +52,6 @@ header > div > nav > a:hover {
     color: white;
 }
 
-header > div > svg {
-    shape-rendering: crispEdges;
-    margin-right: 10px;
-    stroke: white;
-    height: 24px;
-    width: 24px;
-    scale: 0.8;
-    transition: all .3s;
-}
-
-header > div > svg:hover {
-    stroke: hsl(0, 0%, 70%);
-}
 
 header > div > .profile {
     background-color: orangered;
@@ -73,3 +60,76 @@ header > div > .profile {
     border-radius: 5px;
     cursor: default;
 }
+
+.search-button > svg {
+    width: 1000px;
+    shape-rendering: crispEdges;
+    margin-right: 10px;
+    stroke: white;
+    height: 24px;
+    width: 24px;
+    scale: 0.8;
+    transition: all .3s;
+    
+}
+.search-button > svg:hover {
+    stroke: hsl(0, 0%, 70%);
+}
+
+.search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.search-panel {
+    position: absolute; 
+    top: 0;
+    right: -400px;
+    width: 350px;
+    height: 450px;
+    background: black;
+    padding: 30px;
+    transition: right 0.6s ease;
+    z-index: 1000;
+
+}
+
+#search-field {
+    width: 280px;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.search-header {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+
+#search-exit-button {
+  display: flex;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+
+}
+#search-exit-button > svg {
+
+    shape-rendering: crispEdges;
+    margin-right: 10px;
+    stroke: white;
+    height: 35px;
+    width: 35px;
+    scale: 0.8;
+    transition: all .3s;
+}
+
+
+
