@@ -69,8 +69,7 @@ header > div > .profile {
     height: 24px;
     width: 24px;
     scale: 0.8;
-    transition: all .3s;
-    
+    transition: all .3s; 
 }
 .search-button > svg:hover {
     stroke: hsl(0, 0%, 70%);
@@ -84,7 +83,7 @@ header > div > .profile {
 }
 
 .search-panel {
-    position: absolute; 
+    position: fixed; 
     top: 0;
     right: -400px;
     width: 350px;
@@ -118,10 +117,9 @@ header > div > .profile {
   border: none;
   cursor: pointer;
   padding: 10px;
-
 }
-#search-exit-button > svg {
 
+#search-exit-button > svg {
     shape-rendering: crispEdges;
     margin-right: 10px;
     stroke: white;

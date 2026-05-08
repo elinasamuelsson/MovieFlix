@@ -6,9 +6,10 @@ searchButton.addEventListener("click", () => {
 
     searchPanel.style.right = "0";
 
-
 });
 
 exitButton.addEventListener("click", () => {
+
     searchPanel.style.right = "-400px";
+    
 }); 
