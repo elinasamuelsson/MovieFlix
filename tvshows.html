@@ -5,6 +5,7 @@
     <title> TV Shows </title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/tvshows.css">
+    <script src="./js/tvshows.js" defer></script>
 </head>
 <body id="tvshowsida">
     <div id="page">
@@ -32,7 +33,16 @@
             <h4>Binge-worthy series and award-winning shows</h4>
         </div>
 
-        <div class="slidearea">
+        <div id="genre-filter">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="popular">Popular</button>
+          <button class="filter-btn" data-filter="comedy">Comedy</button>
+          <button class="filter-btn" data-filter="scifi">Sci-Fi</button>
+          <button class="filter-btn" data-filter="drama">Drama</button>
+          <button class="filter-btn" data-filter="trending">Trending</button>
+        </div>
+
+        <div class="slidearea" data-genre="popular">
             <h2 class="underrubrik">Popular Shows</h2>
             <div class="slider">
                 <div class="item" style="background-image: url('./assets/tvshows-images/breaking_bad.jpg');">
@@ -74,7 +84,7 @@
             </div>
         </div>    
 
-        <div class="slidearea">
+        <div class="slidearea" data-genre="comedy">
             <h2 class="underrubrik">Comedy Series</h2>
             <div class="slider"> 
                 <div class="item" style="background-image: url('./assets/tvshows-images/friends.webp');">
@@ -116,7 +126,7 @@
             </div>
         </div> 
 
-        <div class="slidearea">
+        <div class="slidearea" data-genre="scifi">
             <h2 class="underrubrik">Sci-Fi Series</h2>
             <div class="slider"> 
                 <div class="item" style="background-image: url('./assets/tvshows-images/stranger_things.jpg');">
@@ -158,7 +168,7 @@
             </div>
         </div> 
 
-        <div class="slidearea">
+        <div class="slidearea" data-genre="drama">
             <h2 class="underrubrik">Drama Series</h2>
             <div class="slider"> 
                 <div class="item" style="background-image: url('./assets/tvshows-images/pitt.webp');">
@@ -200,7 +210,7 @@
             </div>
         </div> 
 
-        <div class="slidearea">
+        <div class="slidearea" data-genre="trending">
             <h2 class="underrubrik">Trending TV Shows</h2>
             <div class="slider"> 
                 <div class="item" style="background-image: url('./assets/tvshows-images/fallout.webp');">
