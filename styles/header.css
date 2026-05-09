@@ -129,5 +129,16 @@ header > div > .profile {
     transition: all .3s;
 }
 
+.result-list {
+    display: flex;
+    gap: 30px;
+}
+
+.result-card img {
+    width: 80px;
+    height: 100px;
+
+}
+
 
 
