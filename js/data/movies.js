@@ -1,4 +1,4 @@
-export const movies = [
+let movies = [
     {
         id: 1,
         title: "The Dark Knight",
@@ -1329,3 +1329,11 @@ export const movies = [
         image: "https://m.media-amazon.com/images/M/MV5BMTgwNDI1ZjctYWNmMS00MTJhLTg1ZWItMzI1Yjk5NjZkYWFkXkEyXkFqcGc@._V1_.jpg",
     },
 ];
+
+export function setMovies(newMovies) {
+    movies = newMovies;
+}
+
+export function getMoviesCopy() {
+    return movies.map(movie => ({ ...movie }));
+}
