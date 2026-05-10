@@ -10,3 +10,9 @@ main > section {
     display: flex;
     gap: 20px;
 }
+
+.community {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}

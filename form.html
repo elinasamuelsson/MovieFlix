@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./styles/index.css">
+        <link rel="stylesheet" href="./styles/main.css">
+        <link rel="stylesheet" href="./styles/form.css">
+        <script src="./js/publish.js" type="module"></script>
+        <title>MovieFlix</title>
+    </head>
+    <body>
+        <div id="page">
+            <header>
+                <div>
+                    <a class="logo" href="./index.html">MOVIEFLIX</a>
+                    <nav>
+                        <!-- Lägg active-nav class till era respektive html-->
+                        <a href="./index.html">Home</a>
+                        <a href="./tvshows.html">TV Shows</a>
+                        <a href="./movies.html">Movies</a>
+                        <a href="./newreleases.html">New & Popular</a>
+                        <a href="./profile.html">My List</a>
+                    </nav>
+                </div>
+
+                <div>
+                    <div id="search-container">
+                        <button id="search-button" class="search-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                            </svg>
+                        </button>    
+                    </div>    
+                    <span class="profile">U</span>
+                </div>
+            </header>
+
+            <main id="main-form">
+                <form class="movieflix-form">
+                    <h2 class="form-title">Add Content</h2>
+
+                    <div class="form-group">
+                        <label for="movie-title">Title:</label>
+                        <input type="text" name="title" id="movie-title" placeholder="e.g. Inception">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="movie-year">Publish Year:</label>
+                        <input type="number" name="year" id="movie-year" placeholder="2026">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="movie-age-rating">Age Rating:</label>
+                        <select name="rating" id="movie-age-rating">
+                            <option value="#">Choose a Rating</option>
+                            <option value="G">G</option>
+                            <option value="PG">PG</option>
+                            <option value="PG-13">PG-13</option>
+                            <option value="R">R</option>
+                            <option value="NC-17">NC-17</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Duration:</label>
+                        <div class="duration-container">
+                            <input type="number" placeholder="HH" min="0" max="20">
+                            <span>h</span>
+                            <input type="number" placeholder="MM" min="0" max="59">
+                            <span>m</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="movie-image">Image (URL):</label>
+                        <input type="url" id="movie-image" placeholder="https://image-link.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genre">Genre:</label>
+                        <select id="genre" name="genre">
+                            <option value="" disabled selected>Choose a genre</option>
+                            <option value="action">Action</option>
+                            <option value="horror">Horror</option>
+                            <option value="sci-fi">Science Fiction</option>
+                        </select>
+                    </div>
+
+                    <div class="content-type-group">
+                        <p class="label-text">Content Type</p>
+                        <div class="radio-options">
+                            <label class="radio-label">
+                                <input type="radio" name="contentType" value="movie" checked>
+                                <span>Movie</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="contentType" value="series">
+                                <span>Series</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Save Content</button>
+                </form>
+            </main>
+
+            <div id="toast-container"></div>
+        </div>
+    </body>
+</html>
