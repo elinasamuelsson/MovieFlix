@@ -1334,6 +1334,6 @@ export function setMovies(newMovies) {
     movies = newMovies;
 }
 
-export function getMovies() {
-    return movies;
+export function getMoviesCopy() {
+    return movies.map(movie => ({ ...movie }));
 }

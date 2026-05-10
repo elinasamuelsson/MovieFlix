@@ -1,7 +1,7 @@
-import { setMovies, getMovies } from "/js/data/movies.js";
+import { setMovies, getMoviesCopy } from "/js/data/movies.js";
 
 export function saveToLocalStorage() {
-    localStorage.setItem("movies", JSON.stringify(getMovies()));
+    localStorage.setItem("movies", JSON.stringify(getMoviesCopy()));
 }
 
 export function fetchFromLocalStorage() {
