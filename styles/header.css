@@ -132,6 +132,7 @@ header > div > .profile {
 .result-list {
     display: flex;
     gap: 30px;
+    max-width: 300px;
 }
 
 .result-card img {

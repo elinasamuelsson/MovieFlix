@@ -1,3 +1,5 @@
+import { movies } from "./data/movies.js";
+
 const searchButton = document.getElementById("search-button");
 const searchPanel = document.getElementById("search-panel");
 const exitButton = document.getElementById("search-exit-button");
@@ -42,18 +44,20 @@ searchField.addEventListener("keydown", (e) => {
 });
 
 function searchMovies(searchText) {
+
     return movies.filter(movie =>
         movie.title
             .toLowerCase()
             .includes(searchText.toLowerCase())
     );
+
 }
 
 function collectMovies(movieList) {
 
     resultList.innerHTML = "";
 
-    movieList.slice(0, 5).forEach(movie => {
+    movieList.slice(0, 3).forEach(movie => {
 
         resultList.innerHTML += `
         
