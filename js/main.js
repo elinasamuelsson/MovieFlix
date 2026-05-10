@@ -1,11 +1,9 @@
-import {
-    saveToLocalStorage,
-    fetchFromLocalStorage,
-} from "/js/data/localstorage.js";
+import { saveToLocalStorage, fetchFromLocalStorage } from "/js/data/localstorage.js";
 import { getMoviesCopy, setMovies } from "/js/data/movies.js";
+import { renderToMyList } from "/js/ratings.js";
 
 fetchFromLocalStorage();
-console.log(getMoviesCopy());
+renderToMyList();
 
 // CHANGE RATINGS ON PROFILE-PAGE MOVIES IN MY LIST
 document.querySelectorAll(".card-rating svg").forEach((ratingStar) => {
