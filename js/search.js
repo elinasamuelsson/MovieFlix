@@ -1,4 +1,4 @@
-import { movies } from "./data/movies.js";
+import { getMoviesCopy } from "/js/data/movies.js";
 
 const searchButton = document.getElementById("search-button");
 const searchPanel = document.getElementById("search-panel");
@@ -44,8 +44,10 @@ searchField.addEventListener("keydown", (e) => {
 });
 
 function searchMovies(searchText) {
+    
+    const moviesCopy = getMoviesCopy();
 
-    return movies.filter(movie =>
+    return moviesCopy.filter(movie =>
         movie.title
             .toLowerCase()
             .includes(searchText.toLowerCase())
