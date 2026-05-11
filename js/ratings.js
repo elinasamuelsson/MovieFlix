@@ -1,13 +1,52 @@
-import { getMoviesCopy } from "/js/data/movies.js";
+import { getMoviesCopy, setMovies } from "/js/data/movies.js";
+import { saveToLocalStorage } from "/js/data/localstorage.js";
 
+//RATING CHANGES WHEN CLICKED
+export function changeRating(e) {
+    const clicked = e.currentTarget;
+    const chosenRating = Number(clicked.dataset.rating);
+    const allRatingStars = clicked
+        .closest(".card-rating")
+        .querySelectorAll("svg");
+
+    const movieTitle = clicked
+        .closest(".card-wrapper")
+        .querySelector(".movie-title").textContent;
+
+    let moviesCopy = getMoviesCopy();
+    moviesCopy.forEach((movie) => {
+        if (movieTitle != movie.title) {
+            return;
+        } else {
+            movie.rating = chosenRating;
+        }
+    });
+
+    setMovies(moviesCopy);
+    saveToLocalStorage();
+
+    allRatingStars.forEach((ratingStar) => {
+        const svgPolygon = ratingStar.querySelector("polygon");
+        if (Number(ratingStar.dataset.rating) <= chosenRating) {
+            svgPolygon.setAttribute("fill", "#F5A623");
+        } else {
+            svgPolygon.setAttribute("fill", "none");
+        }
+    });
+}
+
+//RENDER TO MY LIST
 export function renderToMyList() {
-    const moviesCopy = getMoviesCopy();
-
     const myListContainer = document
         .querySelector(".list-header")
         .closest("section")
         .querySelector(".container");
 
+    if (myListContainer === null) {
+        return;
+    }
+
+    const moviesCopy = getMoviesCopy();
     let moviesToRender = [];
 
     moviesCopy.forEach((movie) => {
@@ -47,9 +86,58 @@ export function renderToMyList() {
         }
         return ratingStars;
     }
+}
 
-    function renderCardButtons() {
-        return `<a>
+//RENDER TO FAVORITES
+export function renderToFavorites() {
+    const favoritesContainer = document
+        .querySelector(".favorites-header")
+        .closest("section")
+        .querySelector(".container");
+
+    if (favoritesContainer === null) {
+        return;
+    }
+
+    const moviesCopy = getMoviesCopy();
+    let moviesToRender = [];
+
+    moviesCopy.forEach((movie) => {
+        if (movie.categories.includes("favorite")) {
+            moviesToRender.push(movie);
+
+            const card = document.createElement("div");
+            card.classList.add("card-wrapper");
+            card.innerHTML = `<div class="card" style="background-image: url('${movie.image}')">
+                ${renderHeartButton()}
+                <div class="card-buttons">${renderCardButtons()}</div>
+                <p class="movie-title">${movie.title}</p>
+                <p class="movie-info">${movie.year} • ${movie.ageRating}</p>
+                </div>`;
+
+            favoritesContainer.appendChild(card);
+        }
+    });
+
+    function renderHeartButton() {
+        return `<svg
+                            class="heart-svg"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            height="24"
+                            fill="currentColor"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linejoin="round">
+                            <path
+                                d="M12,21 C10,19 2,14 2,8 C2,4 5,2 8,3 C10,4 11,6 12,8 C13,6 14,4 16,3 C19,2 22,4 22,8 C22,14 14,19 12,21 Z" />
+                        </svg>`;
+    }
+}
+
+function renderCardButtons() {
+    return `<a>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -95,5 +183,4 @@ export function renderToMyList() {
                         <line x1="14" y1="12" x2="14" y2="16" />
                     </svg>
                 </a>`;
-    }
 }
