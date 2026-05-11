@@ -6,6 +6,7 @@ const exitButton = document.getElementById("search-exit-button");
 const searchField = document.getElementById("search-field");
 const searchText = document.getElementById("search-text");
 const resultList = document.getElementById("result-list");
+const resultText =document.getElementById("result-text");
 
 searchButton.addEventListener("click", () => {
 
@@ -25,6 +26,9 @@ searchField.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
 
         const inputText = searchField.value;
+
+        resultText.style.display = "block";
+
         searchText.textContent = inputText;
 
         const results = searchMovies(inputText);
@@ -44,7 +48,7 @@ searchField.addEventListener("keydown", (e) => {
 });
 
 function searchMovies(searchText) {
-    
+
     const moviesCopy = getMoviesCopy();
 
     return moviesCopy.filter(movie =>

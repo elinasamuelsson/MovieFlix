@@ -6,27 +6,55 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/tvshows.css">
     <script src="./js/tvshows.js" defer></script>
+    <script src="./js/data/movies.js" defer></script>
+    <script type="module" src="./js/search.js" defer></script>
 </head>
 <body id="tvshowsida">
     <div id="page">
-        <header>
-            <div>
-                <a class="logo" href="./index.html">MOVIEFLIX</a>
-                <nav>
-                    <a href="./index.html">Home</a>
-                    <a href="./tvshows.html" class="active-nav">TV Shows</a>
-                    <a href="./movies.html">Movies</a>
-                    <a href="./newreleases.html">New & Popular</a>
-                    <a href="./profile.html">My List</a>
-                </nav>
+            <header>
+                <div>
+                    <a class="logo" href="./index.html">MOVIEFLIX</a>
+                    <nav>
+                        <!-- Lägg active-nav class till era respektive html-->
+                        <a href="./index.html" class="active-nav">Home</a>
+                        <a href="./tvshows.html">TV Shows</a>
+                        <a href="./movies.html">Movies</a>
+                        <a href="./newreleases.html">New & Popular</a>
+                        <a href="./profile.html">My List</a>
+                    </nav>
+                </div>
+
+                 <div>
+                    <div id="search-container">
+                        <button id="search-button" class="search-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                            </svg>
+                        </button>    
+                    </div>    
+                    <span class="profile">U</span>
+                </div>
+            </header>
+            <div id="search-panel" class="search-panel">
+                <div class="search-header">
+                    <input type="text" id="search-field" placeholder="Search movies or tvshows...">
+                    <button id="search-exit-button" class="search-exit-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search-exit" viewBox="0 0 16 16">
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                        </svg>
+                    </button>
+                </div>
+                <div id="search-results" class="search-results">
+                    <h4 id="result-text">Result for: 
+                        <span id=search-text></span>
+                    </h4>
+                    <div id="result-list" class="result-list">
+                    
+                    </div>
+                </div>
             </div>
-            <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                </svg>
-                <span class="profile">U</span>
-            </div>
-        </header>
+        
+        
    
         <div id="hero">
             <h1>TV Shows</h1>

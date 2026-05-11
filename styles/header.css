@@ -129,6 +129,10 @@ header > div > .profile {
     transition: all .3s;
 }
 
+#result-text {
+    display: none;
+}
+
 .result-list {
     display: flex;
     gap: 30px;

@@ -6,11 +6,12 @@
     <title> MOVIES </title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/movies.css">
+    <script src="./js/data/movies.js" defer></script>
     <script type="module" src="./js/search.js" defer></script>
+    
 </head>
 
 <body>
-
     <div id="page">
         <header>
                 <div>
@@ -25,7 +26,7 @@
                     </nav>
                 </div>
 
-                <div>
+                 <div>
                     <div id="search-container">
                         <button id="search-button" class="search-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -46,16 +47,15 @@
                     </button>
                 </div>
                 <div id="search-results" class="search-results">
-                    <h4>Result for: 
+                    <h4 id="result-text">Result for: 
                         <span id=search-text></span>
                     </h4>
                     <div id="result-list" class="result-list">
                     
                     </div>
                 </div>
-            </div>    
-
-
+         </div>  
+            
 
         <section id="hero">
             <h1 id="rubrik1">Movies</h1>
