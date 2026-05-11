@@ -402,7 +402,7 @@ let movies = [
         duration: "1h/ep",
         genres: ["Adventure", "Action", "Fantasy"],
         categories: ["tv-show", "trending", "favorite"],
-        image: "assets/tv-shows-images/onepiece.jpg",
+        image: "assets/tvshows-images/onepiece.jpg",
     },
 
     {
