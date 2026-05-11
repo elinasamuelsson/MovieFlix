@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title> TV Shows </title>
@@ -9,65 +10,68 @@
     <script src="./js/data/movies.js" defer></script>
     <script type="module" src="./js/search.js" defer></script>
 </head>
+
 <body id="tvshowsida">
     <div id="page">
-            <header>
-                <div>
-                    <a class="logo" href="./index.html">MOVIEFLIX</a>
-                    <nav>
-                        <!-- Lägg active-nav class till era respektive html-->
-                        <a href="./index.html" class="active-nav">Home</a>
-                        <a href="./tvshows.html">TV Shows</a>
-                        <a href="./movies.html">Movies</a>
-                        <a href="./newreleases.html">New & Popular</a>
-                        <a href="./profile.html">My List</a>
-                    </nav>
-                </div>
+        <header>
+            <div>
+                <a class="logo" href="./index.html">MOVIEFLIX</a>
+                <nav>
+                    <!-- Lägg active-nav class till era respektive html-->
+                    <a href="./index.html" class="active-nav">Home</a>
+                    <a href="./tvshows.html">TV Shows</a>
+                    <a href="./movies.html">Movies</a>
+                    <a href="./newreleases.html">New & Popular</a>
+                    <a href="./profile.html">My List</a>
+                </nav>
+            </div>
 
-                 <div>
-                    <div id="search-container">
-                        <button id="search-button" class="search-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                            </svg>
-                        </button>    
-                    </div>    
-                    <span class="profile">U</span>
-                </div>
-            </header>
-            <div id="search-panel" class="search-panel">
-                <div class="search-header">
-                    <input type="text" id="search-field" placeholder="Search movies or tvshows...">
-                    <button id="search-exit-button" class="search-exit-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search-exit" viewBox="0 0 16 16">
-                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+            <div>
+                <div id="search-container">
+                    <button id="search-button" class="search-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                         </svg>
                     </button>
                 </div>
-                <div id="search-results" class="search-results">
-                    <h4 id="result-text">Result for: 
-                        <span id=search-text></span>
-                    </h4>
-                    <div id="result-list" class="result-list">
-                    
-                    </div>
+                <span class="profile">U</span>
+            </div>
+        </header>
+        <div id="search-panel" class="search-panel">
+            <div class="search-header">
+                <input type="text" id="search-field" placeholder="Search movies or tvshows...">
+                <button id="search-exit-button" class="search-exit-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-search-exit" viewBox="0 0 16 16">
+                        <path
+                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                    </svg>
+                </button>
+            </div>
+            <div id="search-results" class="search-results">
+                <h4 id="result-text">Result for:
+                    <span id=search-text></span>
+                </h4>
+                <div id="result-list" class="result-list">
+
                 </div>
             </div>
-        
-        
-   
+        </div>
+
         <div id="hero">
             <h1>TV Shows</h1>
             <h4>Binge-worthy series and award-winning shows</h4>
         </div>
 
         <div id="genre-filter">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="popular">Popular</button>
-          <button class="filter-btn" data-filter="comedy">Comedy</button>
-          <button class="filter-btn" data-filter="scifi">Sci-Fi</button>
-          <button class="filter-btn" data-filter="drama">Drama</button>
-          <button class="filter-btn" data-filter="trending">Trending</button>
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="popular">Popular</button>
+            <button class="filter-btn" data-filter="comedy">Comedy</button>
+            <button class="filter-btn" data-filter="scifi">Sci-Fi</button>
+            <button class="filter-btn" data-filter="drama">Drama</button>
+            <button class="filter-btn" data-filter="trending">Trending</button>
         </div>
 
         <div class="slidearea" data-genre="popular">
@@ -75,206 +79,206 @@
             <div class="slider">
                 <div class="item" style="background-image: url('./assets/tvshows-images/breaking_bad.jpg');">
                     <div class="item-info">
-                      <p class="item-title">Breaking Bad</p>
-                      <p class="item-meta">2008 • PG-16</p>
+                        <p class="item-title">Breaking Bad</p>
+                        <p class="item-meta">2008 • PG-16</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/friends.webp');">
                     <div class="item-info">
-                      <p class="item-title">Friends</p>
-                      <p class="item-meta">1994 • TV-14</p>
+                        <p class="item-title">Friends</p>
+                        <p class="item-meta">1994 • TV-14</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/the_office.jpg');">
                     <div class="item-info">
-                      <p class="item-title">The Office</p>
-                      <p class="item-meta">2005 • TV-14</p>
+                        <p class="item-title">The Office</p>
+                        <p class="item-meta">2005 • TV-14</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/how_i_met.jpg');">
                     <div class="item-info">
-                      <p class="item-title">How I met your mother</p>
-                      <p class="item-meta">2005 • TV-14</p>
+                        <p class="item-title">How I met your mother</p>
+                        <p class="item-meta">2005 • TV-14</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/big_bang.jpg');">
                     <div class="item-info">
-                      <p class="item-title">The Big Bang Theory</p>
-                      <p class="item-meta">2007 • TV-PG</p>
+                        <p class="item-title">The Big Bang Theory</p>
+                        <p class="item-meta">2007 • TV-PG</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/lost.jpg');">
                     <div class="item-info">
-                      <p class="item-title">Lost</p>
-                      <p class="item-meta">2004 • TV-14</p>
+                        <p class="item-title">Lost</p>
+                        <p class="item-meta">2004 • TV-14</p>
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>
 
         <div class="slidearea" data-genre="comedy">
             <h2 class="underrubrik">Comedy Series</h2>
-            <div class="slider"> 
+            <div class="slider">
                 <div class="item" style="background-image: url('./assets/tvshows-images/friends.webp');">
                     <div class="item-info">
-                      <p class="item-title">Friends</p>
-                      <p class="item-meta">1994 • TV-14</p>
+                        <p class="item-title">Friends</p>
+                        <p class="item-meta">1994 • TV-14</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/the_office.jpg');">
                     <div class="item-info">
-                      <p class="item-title">The Office</p>
-                      <p class="item-meta">2005 • TV-14</p>
+                        <p class="item-title">The Office</p>
+                        <p class="item-meta">2005 • TV-14</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/how_i_met.jpg');">
                     <div class="item-info">
-                      <p class="item-title">How I met your mother</p>
-                      <p class="item-meta">2005 • TV-14</p>
+                        <p class="item-title">How I met your mother</p>
+                        <p class="item-meta">2005 • TV-14</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/big_bang.jpg');">
                     <div class="item-info">
-                      <p class="item-title">The Big Bang Theory</p>
-                      <p class="item-meta">2007 • TV-PG</p>
+                        <p class="item-title">The Big Bang Theory</p>
+                        <p class="item-meta">2007 • TV-PG</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/seinfeld.jpg');">
                     <div class="item-info">
-                      <p class="item-title">Seinfeld</p>
-                      <p class="item-meta">1989 • TV-PG</p>
+                        <p class="item-title">Seinfeld</p>
+                        <p class="item-meta">1989 • TV-PG</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/raymond.jpg');">
                     <div class="item-info">
-                      <p class="item-title">Everybody Loves Raymond</p>
-                      <p class="item-meta">1996 • TV-PG</p>
+                        <p class="item-title">Everybody Loves Raymond</p>
+                        <p class="item-meta">1996 • TV-PG</p>
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
 
         <div class="slidearea" data-genre="scifi">
             <h2 class="underrubrik">Sci-Fi Series</h2>
-            <div class="slider"> 
+            <div class="slider">
                 <div class="item" style="background-image: url('./assets/tvshows-images/stranger_things.jpg');">
                     <div class="item-info">
-                      <p class="item-title">Stranger Things</p>
-                      <p class="item-meta">2016 • TV-14</p>
+                        <p class="item-title">Stranger Things</p>
+                        <p class="item-meta">2016 • TV-14</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/fallout.webp');">
                     <div class="item-info">
-                      <p class="item-title">Fallout</p>
-                      <p class="item-meta">2024 • TV-MA</p>
+                        <p class="item-title">Fallout</p>
+                        <p class="item-meta">2024 • TV-MA</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/The_Walking_Dead.jpg');">
                     <div class="item-info">
-                      <p class="item-title">The Walking Dead</p>
-                      <p class="item-meta">2010 • TV-MA</p>
+                        <p class="item-title">The Walking Dead</p>
+                        <p class="item-meta">2010 • TV-MA</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/borderland.jpg');">
                     <div class="item-info">
-                      <p class="item-title">Alice in Borderland</p>
-                      <p class="item-meta">2020 • TV-MA</p>
+                        <p class="item-title">Alice in Borderland</p>
+                        <p class="item-meta">2020 • TV-MA</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/from.jpg');">
                     <div class="item-info">
-                      <p class="item-title">From</p>
-                      <p class="item-meta">2022 • TV-MA</p>
+                        <p class="item-title">From</p>
+                        <p class="item-meta">2022 • TV-MA</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/monarch.png');">
                     <div class="item-info">
-                      <p class="item-title">Monarch: Legacy of Monsters</p>
-                      <p class="item-meta">2023 • TV-14</p>
+                        <p class="item-title">Monarch: Legacy of Monsters</p>
+                        <p class="item-meta">2023 • TV-14</p>
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
 
         <div class="slidearea" data-genre="drama">
             <h2 class="underrubrik">Drama Series</h2>
-            <div class="slider"> 
+            <div class="slider">
                 <div class="item" style="background-image: url('./assets/tvshows-images/pitt.webp');">
                     <div class="item-info">
-                      <p class="item-title">The Pitt</p>
-                      <p class="item-meta">2025 • TV-14</p>
+                        <p class="item-title">The Pitt</p>
+                        <p class="item-meta">2025 • TV-14</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/anatomy.jpg');">
                     <div class="item-info">
-                      <p class="item-title">Grey's Anatomy</p>
-                      <p class="item-meta">2005 • TV-14</p>
+                        <p class="item-title">Grey's Anatomy</p>
+                        <p class="item-meta">2005 • TV-14</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/outlander.jpg');">
                     <div class="item-info">
-                      <p class="item-title">Outlander</p>
-                      <p class="item-meta">2014 • TV-MA</p>
+                        <p class="item-title">Outlander</p>
+                        <p class="item-meta">2014 • TV-MA</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/peaky_blinders.jpg');">
                     <div class="item-info">
-                      <p class="item-title">Peaky Blinders</p>
-                      <p class="item-meta">2013 • TV-MA</p>
+                        <p class="item-title">Peaky Blinders</p>
+                        <p class="item-meta">2013 • TV-MA</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/chernobyl.jpg');">
                     <div class="item-info">
-                      <p class="item-title">Chernobyl</p>
-                      <p class="item-meta">2019 • TV-MA</p>
+                        <p class="item-title">Chernobyl</p>
+                        <p class="item-meta">2019 • TV-MA</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/reacher.jpg');">
                     <div class="item-info">
-                      <p class="item-title">Reacher</p>
-                      <p class="item-meta">2022 • TV-MA</p>
+                        <p class="item-title">Reacher</p>
+                        <p class="item-meta">2022 • TV-MA</p>
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
 
         <div class="slidearea" data-genre="trending">
             <h2 class="underrubrik">Trending TV Shows</h2>
-            <div class="slider"> 
+            <div class="slider">
                 <div class="item" style="background-image: url('./assets/tvshows-images/fallout.webp');">
                     <div class="item-info">
-                      <p class="item-title">Fallout</p>
-                      <p class="item-meta">2024 • TV-MA</p>
+                        <p class="item-title">Fallout</p>
+                        <p class="item-meta">2024 • TV-MA</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/stranger_things.jpg');">
                     <div class="item-info">
-                      <p class="item-title">Stranger Things</p>
-                      <p class="item-meta">2016 • TV-14</p>
+                        <p class="item-title">Stranger Things</p>
+                        <p class="item-meta">2016 • TV-14</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/The_Walking_Dead.jpg');">
                     <div class="item-info">
-                      <p class="item-title">The Walking Dead</p>
-                      <p class="item-meta">2010 • TV-MA</p>
+                        <p class="item-title">The Walking Dead</p>
+                        <p class="item-meta">2010 • TV-MA</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/detective.jpg');">
                     <div class="item-info">
-                      <p class="item-title">Jo Nesbo's Detective Hole</p>
-                      <p class="item-meta">2026 • TV-MA</p>
+                        <p class="item-title">Jo Nesbo's Detective Hole</p>
+                        <p class="item-meta">2026 • TV-MA</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/paradise.jpg');">
                     <div class="item-info">
-                      <p class="item-title">Paradise</p>
-                      <p class="item-meta">2025 • TV-MA</p>
+                        <p class="item-title">Paradise</p>
+                        <p class="item-meta">2025 • TV-MA</p>
                     </div>
                 </div>
                 <div class="item" style="background-image: url('./assets/tvshows-images/onepiece.jpg');">
                     <div class="item-info">
-                      <p class="item-title">One Piece</p>
-                      <p class="item-meta">2023 • TV-14</p>
+                        <p class="item-title">One Piece</p>
+                        <p class="item-meta">2023 • TV-14</p>
                     </div>
                 </div>
             </div>
@@ -292,4 +296,5 @@
         </footer>
     </div>
 </body>
+
 </html>

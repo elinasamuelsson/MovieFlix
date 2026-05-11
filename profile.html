@@ -1,38 +1,63 @@
 <!doctype html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>My Profile</title>
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="styles/profile.css" />
     <script type="module" src="/js/main.js" defer></script>
+    <script src="./js/data/movies.js" defer></script>
+    <script type="module" src="./js/search.js" defer></script>
 </head>
+
 <body>
     <header>
         <div>
             <a class="logo" href="./index.html">MOVIEFLIX</a>
             <nav>
-                <a href="./index.html">Home</a>
+                <!-- Lägg active-nav class till era respektive html-->
+                <a href="./index.html" class="active-nav">Home</a>
                 <a href="./tvshows.html">TV Shows</a>
                 <a href="./movies.html">Movies</a>
                 <a href="./newreleases.html">New & Popular</a>
-                <a href="./profile.html" class=".active">My List</a>
+                <a href="./profile.html">My List</a>
             </nav>
         </div>
 
         <div>
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-search"
-                viewBox="0 0 16 16">
-                <path
-                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-            </svg>
+            <div id="search-container">
+                <button id="search-button" class="search-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg>
+                </button>
+            </div>
             <span class="profile">U</span>
         </div>
     </header>
+    <div id="search-panel" class="search-panel">
+        <div class="search-header">
+            <input type="text" id="search-field" placeholder="Search movies or tvshows...">
+            <button id="search-exit-button" class="search-exit-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-search-exit" viewBox="0 0 16 16">
+                    <path
+                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                </svg>
+            </button>
+        </div>
+        <div id="search-results" class="search-results">
+            <h4 id="result-text">Result for:
+                <span id=search-text></span>
+            </h4>
+            <div id="result-list" class="result-list">
+
+            </div>
+        </div>
+    </div>
+
     <main>
         <section>
             <div class="user-container">
@@ -44,44 +69,19 @@
                         <h1>
                             Milo Söderberg
                             <a href="#">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="24"
-                                    height="24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.5"
-                                    stroke-linejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
                                     <g transform="translate(12,12) rotate(45)">
                                         <!-- body -->
-                                        <rect
-                                            x="-4"
-                                            y="-12"
-                                            width="8"
-                                            height="16"
-                                            rx="1" />
+                                        <rect x="-4" y="-12" width="8" height="16" rx="1" />
                                         <!-- wood tip -->
-                                        <rect
-                                            x="-4"
-                                            y="4"
-                                            width="8"
-                                            height="4" />
+                                        <rect x="-4" y="4" width="8" height="4" />
                                         <!-- graphite tip -->
                                         <polygon points="-4,8 4,8 0,14" />
                                         <!-- ferrule -->
-                                        <rect
-                                            x="-4"
-                                            y="-14"
-                                            width="8"
-                                            height="3" />
+                                        <rect x="-4" y="-14" width="8" height="3" />
                                         <!-- eraser -->
-                                        <rect
-                                            x="-4"
-                                            y="-18"
-                                            width="8"
-                                            height="5"
-                                            rx="1" />
+                                        <rect x="-4" y="-18" width="8" height="5" rx="1" />
                                     </g>
                                 </svg>
                             </a>
@@ -103,16 +103,9 @@
                     <h3>Average Rating</h3>
                     <p class="rating">
                         4.3
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 100 100"
-                            width="20"
-                            height="20">
-                            <polygon
-                                points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                fill="#F5A623"
-                                stroke="#E8940F"
-                                stroke-width="1.5" />
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20" height="20">
+                            <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35" fill="#F5A623"
+                                stroke="#E8940F" stroke-width="1.5" />
                         </svg>
                     </p>
                 </div>
@@ -128,15 +121,8 @@
         </section>
         <section>
             <h2 class="favorites-header">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linejoin="round">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none"
+                    stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
                     <path
                         d="M12,21 C10,19 2,14 2,8 C2,4 5,2 8,3 C10,4 11,6 12,8 C13,6 14,4 16,3 C19,2 22,4 22,8 C22,14 14,19 12,21 Z" />
                 </svg>
@@ -144,67 +130,30 @@
             </h2>
             <div class="container">
                 <div class="card-wrapper">
-                    <div
-                        class="card"
-                        style="
+                    <div class="card" style="
                             background-image: url(&quot;./assets/action-and-adventure-images/One\ Piece.png&quot;);
                         ">
-                        <svg
-                            class="heart-svg"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            width="24"
-                            height="24"
-                            fill="currentColor"
-                            stroke="currentColor"
-                            stroke-width="2.5"
+                        <svg class="heart-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24" fill="currentColor" stroke="currentColor" stroke-width="2.5"
                             stroke-linejoin="round">
                             <path
                                 d="M12,21 C10,19 2,14 2,8 C2,4 5,2 8,3 C10,4 11,6 12,8 C13,6 14,4 16,3 C19,2 22,4 22,8 C22,14 14,19 12,21 Z" />
                         </svg>
                         <div class="card-buttons">
-                            <a
-                                ><svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#ffffff" />
-                                    <polygon
-                                        points="10,7 10,17 18,12"
-                                        fill="black" />
+                            <a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                                    <circle cx="12" cy="12" r="12" fill="#ffffff" />
+                                    <polygon points="10,7 10,17 18,12" fill="black" />
                                 </svg>
                             </a>
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40"
-                                    fill="none"
-                                    stroke="#ffffff"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"
+                                    fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#e63946"
-                                        stroke="none" />
+                                    <circle cx="12" cy="12" r="12" fill="#e63946" stroke="none" />
                                     <line x1="7" y1="9" x2="17" y2="9" />
                                     <line x1="10" y1="9" x2="10" y2="7" />
                                     <line x1="14" y1="9" x2="14" y2="7" />
-                                    <rect
-                                        x="8"
-                                        y="10"
-                                        width="8"
-                                        height="8"
-                                        rx="1" />
+                                    <rect x="8" y="10" width="8" height="8" rx="1" />
                                     <line x1="10" y1="12" x2="10" y2="16" />
                                     <line x1="14" y1="12" x2="14" y2="16" />
                                 </svg>
@@ -215,67 +164,31 @@
                     <p class="movie-info">2023 • TV-14</p>
                 </div>
                 <div class="card-wrapper">
-                    <div
-                        class="card"
-                        style="
+                    <div class="card" style="
                             background-image: url(&quot;./assets/trending-images/Jujutsu_kaisen.png&quot;);
                         ">
-                        <svg
-                            class="heart-svg"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            width="24"
-                            height="24"
-                            fill="currentColor"
-                            stroke="currentColor"
-                            stroke-width="2.5"
+                        <svg class="heart-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24" fill="currentColor" stroke="currentColor" stroke-width="2.5"
                             stroke-linejoin="round">
                             <path
                                 d="M12,21 C10,19 2,14 2,8 C2,4 5,2 8,3 C10,4 11,6 12,8 C13,6 14,4 16,3 C19,2 22,4 22,8 C22,14 14,19 12,21 Z" />
                         </svg>
                         <div class="card-buttons">
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#ffffff" />
-                                    <polygon
-                                        points="10,7 10,17 18,12"
-                                        fill="black" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                                    <circle cx="12" cy="12" r="12" fill="#ffffff" />
+                                    <polygon points="10,7 10,17 18,12" fill="black" />
                                 </svg>
                             </a>
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40"
-                                    fill="none"
-                                    stroke="#ffffff"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"
+                                    fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#e63946"
-                                        stroke="none" />
+                                    <circle cx="12" cy="12" r="12" fill="#e63946" stroke="none" />
                                     <line x1="7" y1="9" x2="17" y2="9" />
                                     <line x1="10" y1="9" x2="10" y2="7" />
                                     <line x1="14" y1="9" x2="14" y2="7" />
-                                    <rect
-                                        x="8"
-                                        y="10"
-                                        width="8"
-                                        height="8"
-                                        rx="1" />
+                                    <rect x="8" y="10" width="8" height="8" rx="1" />
                                     <line x1="10" y1="12" x2="10" y2="16" />
                                     <line x1="14" y1="12" x2="14" y2="16" />
                                 </svg>
@@ -286,67 +199,31 @@
                     <p class="movie-info">2020 • TV-14</p>
                 </div>
                 <div class="card-wrapper">
-                    <div
-                        class="card"
-                        style="
+                    <div class="card" style="
                             background-image: url(&quot;./assets/action-and-adventure-images/The\ Lost\ City\ Poster.png&quot;);
                         ">
-                        <svg
-                            class="heart-svg"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            width="24"
-                            height="24"
-                            fill="currentColor"
-                            stroke="currentColor"
-                            stroke-width="2.5"
+                        <svg class="heart-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+                            height="24" fill="currentColor" stroke="currentColor" stroke-width="2.5"
                             stroke-linejoin="round">
                             <path
                                 d="M12,21 C10,19 2,14 2,8 C2,4 5,2 8,3 C10,4 11,6 12,8 C13,6 14,4 16,3 C19,2 22,4 22,8 C22,14 14,19 12,21 Z" />
                         </svg>
                         <div class="card-buttons">
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#ffffff" />
-                                    <polygon
-                                        points="10,7 10,17 18,12"
-                                        fill="black" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                                    <circle cx="12" cy="12" r="12" fill="#ffffff" />
+                                    <polygon points="10,7 10,17 18,12" fill="black" />
                                 </svg>
                             </a>
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40"
-                                    fill="none"
-                                    stroke="#ffffff"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"
+                                    fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#e63946"
-                                        stroke="none" />
+                                    <circle cx="12" cy="12" r="12" fill="#e63946" stroke="none" />
                                     <line x1="7" y1="9" x2="17" y2="9" />
                                     <line x1="10" y1="9" x2="10" y2="7" />
                                     <line x1="14" y1="9" x2="14" y2="7" />
-                                    <rect
-                                        x="8"
-                                        y="10"
-                                        width="8"
-                                        height="8"
-                                        rx="1" />
+                                    <rect x="8" y="10" width="8" height="8" rx="1" />
                                     <line x1="10" y1="12" x2="10" y2="16" />
                                     <line x1="14" y1="12" x2="14" y2="16" />
                                 </svg>
@@ -360,16 +237,8 @@
         </section>
         <section>
             <h2 class="list-header">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    width="24"
-                    height="24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linejoin="round"
-                    stroke-linecap="round">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none"
+                    stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
                     <g transform="translate(12,12) rotate(45)">
                         <rect x="-5" y="-9" width="10" height="3" rx="1" />
                         <rect x="-2.5" y="-6" width="5" height="7" rx="0.5" />
@@ -381,1250 +250,560 @@
             </h2>
             <div class="container">
                 <div class="card-wrapper">
-                    <div
-                        class="card"
-                        style="
+                    <div class="card" style="
                             background-image: url(&quot;./assets/tvshows-images/pitt.webp&quot;);
                         ">
                         <div class="card-buttons">
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#ffffff" />
-                                    <polygon
-                                        points="10,7 10,17 18,12"
-                                        fill="black" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                                    <circle cx="12" cy="12" r="12" fill="#ffffff" />
+                                    <polygon points="10,7 10,17 18,12" fill="black" />
                                 </svg>
                             </a>
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40"
-                                    fill="none"
-                                    stroke="#ffffff"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"
+                                    fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#e63946"
-                                        stroke="none" />
+                                    <circle cx="12" cy="12" r="12" fill="#e63946" stroke="none" />
                                     <line x1="7" y1="9" x2="17" y2="9" />
                                     <line x1="10" y1="9" x2="10" y2="7" />
                                     <line x1="14" y1="9" x2="14" y2="7" />
-                                    <rect
-                                        x="8"
-                                        y="10"
-                                        width="8"
-                                        height="8"
-                                        rx="1" />
+                                    <rect x="8" y="10" width="8" height="8" rx="1" />
                                     <line x1="10" y1="12" x2="10" y2="16" />
                                     <line x1="14" y1="12" x2="14" y2="16" />
                                 </svg>
                             </a>
                         </div>
                         <div class="card-rating">
-                            <a
-                                ><svg
-                                    data-rating="1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                            <a><svg data-rating="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="2"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="3"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="5"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
                         </div>
                     </div>
                     <p class="movie-title">The Pitt</p>
                     <p class="movie-info">2024 • PG-16</p>
                 </div>
                 <div class="card-wrapper">
-                    <div
-                        class="card"
-                        style="
+                    <div class="card" style="
                             background-image: url(&quot;./assets/tvshows-images/fallout.webp&quot;);
                         ">
                         <div class="card-buttons">
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#ffffff" />
-                                    <polygon
-                                        points="10,7 10,17 18,12"
-                                        fill="black" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                                    <circle cx="12" cy="12" r="12" fill="#ffffff" />
+                                    <polygon points="10,7 10,17 18,12" fill="black" />
                                 </svg>
                             </a>
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40"
-                                    fill="none"
-                                    stroke="#ffffff"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"
+                                    fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#e63946"
-                                        stroke="none" />
+                                    <circle cx="12" cy="12" r="12" fill="#e63946" stroke="none" />
                                     <line x1="7" y1="9" x2="17" y2="9" />
                                     <line x1="10" y1="9" x2="10" y2="7" />
                                     <line x1="14" y1="9" x2="14" y2="7" />
-                                    <rect
-                                        x="8"
-                                        y="10"
-                                        width="8"
-                                        height="8"
-                                        rx="1" />
+                                    <rect x="8" y="10" width="8" height="8" rx="1" />
                                     <line x1="10" y1="12" x2="10" y2="16" />
                                     <line x1="14" y1="12" x2="14" y2="16" />
                                 </svg>
                             </a>
                         </div>
                         <div class="card-rating">
-                            <a
-                                ><svg
-                                    data-rating="1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                            <a><svg data-rating="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="2"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="3"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="5"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="none"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="none" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
                         </div>
                     </div>
                     <p class="movie-title">Fallout</p>
                     <p class="movie-info">2024 • TV-MA</p>
                 </div>
                 <div class="card-wrapper">
-                    <div
-                        class="card"
-                        style="
+                    <div class="card" style="
                             background-image: url(&quot;./assets/tvshows-images/peaky_blinders.jpg&quot;);
                         ">
                         <div class="card-buttons">
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#ffffff" />
-                                    <polygon
-                                        points="10,7 10,17 18,12"
-                                        fill="black" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                                    <circle cx="12" cy="12" r="12" fill="#ffffff" />
+                                    <polygon points="10,7 10,17 18,12" fill="black" />
                                 </svg>
                             </a>
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40"
-                                    fill="none"
-                                    stroke="#ffffff"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"
+                                    fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#e63946"
-                                        stroke="none" />
+                                    <circle cx="12" cy="12" r="12" fill="#e63946" stroke="none" />
                                     <line x1="7" y1="9" x2="17" y2="9" />
                                     <line x1="10" y1="9" x2="10" y2="7" />
                                     <line x1="14" y1="9" x2="14" y2="7" />
-                                    <rect
-                                        x="8"
-                                        y="10"
-                                        width="8"
-                                        height="8"
-                                        rx="1" />
+                                    <rect x="8" y="10" width="8" height="8" rx="1" />
                                     <line x1="10" y1="12" x2="10" y2="16" />
                                     <line x1="14" y1="12" x2="14" y2="16" />
                                 </svg>
                             </a>
                         </div>
                         <div class="card-rating">
-                            <a
-                                ><svg
-                                    data-rating="1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                            <a><svg data-rating="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="2"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="3"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="5"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="none"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="none" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
                         </div>
                     </div>
                     <p class="movie-title">Peaky Blinders</p>
                     <p class="movie-info">2013 • TV-MA</p>
                 </div>
                 <div class="card-wrapper">
-                    <div
-                        class="card"
-                        style="
+                    <div class="card" style="
                             background-image: url(&quot;./assets/tvshows-images/stranger_things.jpg&quot;);
                         ">
                         <div class="card-buttons">
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#ffffff" />
-                                    <polygon
-                                        points="10,7 10,17 18,12"
-                                        fill="black" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                                    <circle cx="12" cy="12" r="12" fill="#ffffff" />
+                                    <polygon points="10,7 10,17 18,12" fill="black" />
                                 </svg>
                             </a>
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40"
-                                    fill="none"
-                                    stroke="#ffffff"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"
+                                    fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#e63946"
-                                        stroke="none" />
+                                    <circle cx="12" cy="12" r="12" fill="#e63946" stroke="none" />
                                     <line x1="7" y1="9" x2="17" y2="9" />
                                     <line x1="10" y1="9" x2="10" y2="7" />
                                     <line x1="14" y1="9" x2="14" y2="7" />
-                                    <rect
-                                        x="8"
-                                        y="10"
-                                        width="8"
-                                        height="8"
-                                        rx="1" />
+                                    <rect x="8" y="10" width="8" height="8" rx="1" />
                                     <line x1="10" y1="12" x2="10" y2="16" />
                                     <line x1="14" y1="12" x2="14" y2="16" />
                                 </svg>
                             </a>
                         </div>
                         <div class="card-rating">
-                            <a
-                                ><svg
-                                    data-rating="1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                            <a><svg data-rating="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="2"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="3"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="5"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="none"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="none" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
                         </div>
                     </div>
                     <p class="movie-title">Stranger Things</p>
                     <p class="movie-info">2016 • PG-14</p>
                 </div>
                 <div class="card-wrapper">
-                    <div
-                        class="card"
-                        style="
+                    <div class="card" style="
                             background-image: url(&quot;./assets/tvshows-images/breaking_bad.jpg&quot;);
                         ">
                         <div class="card-buttons">
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#ffffff" />
-                                    <polygon
-                                        points="10,7 10,17 18,12"
-                                        fill="black" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                                    <circle cx="12" cy="12" r="12" fill="#ffffff" />
+                                    <polygon points="10,7 10,17 18,12" fill="black" />
                                 </svg>
                             </a>
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40"
-                                    fill="none"
-                                    stroke="#ffffff"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"
+                                    fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#e63946"
-                                        stroke="none" />
+                                    <circle cx="12" cy="12" r="12" fill="#e63946" stroke="none" />
                                     <line x1="7" y1="9" x2="17" y2="9" />
                                     <line x1="10" y1="9" x2="10" y2="7" />
                                     <line x1="14" y1="9" x2="14" y2="7" />
-                                    <rect
-                                        x="8"
-                                        y="10"
-                                        width="8"
-                                        height="8"
-                                        rx="1" />
+                                    <rect x="8" y="10" width="8" height="8" rx="1" />
                                     <line x1="10" y1="12" x2="10" y2="16" />
                                     <line x1="14" y1="12" x2="14" y2="16" />
                                 </svg>
                             </a>
                         </div>
                         <div class="card-rating">
-                            <a
-                                ><svg
-                                    data-rating="1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                            <a><svg data-rating="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="2"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="3"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="5"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
                         </div>
                     </div>
                     <p class="movie-title">Breaking Bad</p>
                     <p class="movie-info">2008 • TV-MA</p>
                 </div>
                 <div class="card-wrapper">
-                    <div
-                        class="card"
-                        style="
+                    <div class="card" style="
                             background-image: url(&quot;./assets/scifi-and-fantasy/Inception.png&quot;);
                         ">
                         <div class="card-buttons">
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#ffffff" />
-                                    <polygon
-                                        points="10,7 10,17 18,12"
-                                        fill="black" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                                    <circle cx="12" cy="12" r="12" fill="#ffffff" />
+                                    <polygon points="10,7 10,17 18,12" fill="black" />
                                 </svg>
                             </a>
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40"
-                                    fill="none"
-                                    stroke="#ffffff"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"
+                                    fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#e63946"
-                                        stroke="none" />
+                                    <circle cx="12" cy="12" r="12" fill="#e63946" stroke="none" />
                                     <line x1="7" y1="9" x2="17" y2="9" />
                                     <line x1="10" y1="9" x2="10" y2="7" />
                                     <line x1="14" y1="9" x2="14" y2="7" />
-                                    <rect
-                                        x="8"
-                                        y="10"
-                                        width="8"
-                                        height="8"
-                                        rx="1" />
+                                    <rect x="8" y="10" width="8" height="8" rx="1" />
                                     <line x1="10" y1="12" x2="10" y2="16" />
                                     <line x1="14" y1="12" x2="14" y2="16" />
                                 </svg>
                             </a>
                         </div>
                         <div class="card-rating">
-                            <a
-                                ><svg
-                                    data-rating="1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                            <a><svg data-rating="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="2"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="3"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="5"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="none"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="none" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
                         </div>
                     </div>
                     <p class="movie-title">Inception</p>
                     <p class="movie-info">2010 • PG-13</p>
                 </div>
                 <div class="card-wrapper">
-                    <div
-                        class="card"
-                        style="
+                    <div class="card" style="
                             background-image: url(&quot;./assets/scifi-and-fantasy/The_Endless.png&quot;);
                         ">
                         <div class="card-buttons">
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#ffffff" />
-                                    <polygon
-                                        points="10,7 10,17 18,12"
-                                        fill="black" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                                    <circle cx="12" cy="12" r="12" fill="#ffffff" />
+                                    <polygon points="10,7 10,17 18,12" fill="black" />
                                 </svg>
                             </a>
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40"
-                                    fill="none"
-                                    stroke="#ffffff"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"
+                                    fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#e63946"
-                                        stroke="none" />
+                                    <circle cx="12" cy="12" r="12" fill="#e63946" stroke="none" />
                                     <line x1="7" y1="9" x2="17" y2="9" />
                                     <line x1="10" y1="9" x2="10" y2="7" />
                                     <line x1="14" y1="9" x2="14" y2="7" />
-                                    <rect
-                                        x="8"
-                                        y="10"
-                                        width="8"
-                                        height="8"
-                                        rx="1" />
+                                    <rect x="8" y="10" width="8" height="8" rx="1" />
                                     <line x1="10" y1="12" x2="10" y2="16" />
                                     <line x1="14" y1="12" x2="14" y2="16" />
                                 </svg>
                             </a>
                         </div>
                         <div class="card-rating">
-                            <a
-                                ><svg
-                                    data-rating="1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                            <a><svg data-rating="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="2"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="3"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="none"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="5"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="none" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="none"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="none" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
                         </div>
                     </div>
                     <p class="movie-title">The Endless</p>
                     <p class="movie-info">2018 • PG-16</p>
                 </div>
                 <div class="card-wrapper">
-                    <div
-                        class="card"
-                        style="
+                    <div class="card" style="
                             background-image: url(&quot;./assets/action-and-adventure-images/Casino Royale.png&quot;);
                         ">
                         <div class="card-buttons">
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#ffffff" />
-                                    <polygon
-                                        points="10,7 10,17 18,12"
-                                        fill="black" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                                    <circle cx="12" cy="12" r="12" fill="#ffffff" />
+                                    <polygon points="10,7 10,17 18,12" fill="black" />
                                 </svg>
                             </a>
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40"
-                                    fill="none"
-                                    stroke="#ffffff"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"
+                                    fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#e63946"
-                                        stroke="none" />
+                                    <circle cx="12" cy="12" r="12" fill="#e63946" stroke="none" />
                                     <line x1="7" y1="9" x2="17" y2="9" />
                                     <line x1="10" y1="9" x2="10" y2="7" />
                                     <line x1="14" y1="9" x2="14" y2="7" />
-                                    <rect
-                                        x="8"
-                                        y="10"
-                                        width="8"
-                                        height="8"
-                                        rx="1" />
+                                    <rect x="8" y="10" width="8" height="8" rx="1" />
                                     <line x1="10" y1="12" x2="10" y2="16" />
                                     <line x1="14" y1="12" x2="14" y2="16" />
                                 </svg>
                             </a>
                         </div>
                         <div class="card-rating">
-                            <a
-                                ><svg
-                                    data-rating="1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                            <a><svg data-rating="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="2"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="3"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="5"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="none"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="none" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
                         </div>
                     </div>
                     <p class="movie-title">Casino Royale</p>
                     <p class="movie-info">2006 • PG-13</p>
                 </div>
                 <div class="card-wrapper">
-                    <div
-                        class="card"
-                        style="
+                    <div class="card" style="
                             background-image: url(&quot;./assets/trending-images/Zootopia.png&quot;);
                         ">
                         <div class="card-buttons">
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#ffffff" />
-                                    <polygon
-                                        points="10,7 10,17 18,12"
-                                        fill="black" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                                    <circle cx="12" cy="12" r="12" fill="#ffffff" />
+                                    <polygon points="10,7 10,17 18,12" fill="black" />
                                 </svg>
                             </a>
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40"
-                                    fill="none"
-                                    stroke="#ffffff"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"
+                                    fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#e63946"
-                                        stroke="none" />
+                                    <circle cx="12" cy="12" r="12" fill="#e63946" stroke="none" />
                                     <line x1="7" y1="9" x2="17" y2="9" />
                                     <line x1="10" y1="9" x2="10" y2="7" />
                                     <line x1="14" y1="9" x2="14" y2="7" />
-                                    <rect
-                                        x="8"
-                                        y="10"
-                                        width="8"
-                                        height="8"
-                                        rx="1" />
+                                    <rect x="8" y="10" width="8" height="8" rx="1" />
                                     <line x1="10" y1="12" x2="10" y2="16" />
                                     <line x1="14" y1="12" x2="14" y2="16" />
                                 </svg>
                             </a>
                         </div>
                         <div class="card-rating">
-                            <a
-                                ><svg
-                                    data-rating="1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                            <a><svg data-rating="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="2"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="3"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="5"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="none"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="none" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
                         </div>
                     </div>
                     <p class="movie-title">Zootopia 2</p>
                     <p class="movie-info">2016 • PG</p>
                 </div>
                 <div class="card-wrapper">
-                    <div
-                        class="card"
-                        style="
+                    <div class="card" style="
                             background-image: url(&quot;./assets/action-and-adventure-images/Legacy_of_Monsters_Poster.png&quot;);
                         ">
                         <div class="card-buttons">
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#ffffff" />
-                                    <polygon
-                                        points="10,7 10,17 18,12"
-                                        fill="black" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                                    <circle cx="12" cy="12" r="12" fill="#ffffff" />
+                                    <polygon points="10,7 10,17 18,12" fill="black" />
                                 </svg>
                             </a>
                             <a>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    width="40"
-                                    height="40"
-                                    fill="none"
-                                    stroke="#ffffff"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40"
+                                    fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round">
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="12"
-                                        fill="#e63946"
-                                        stroke="none" />
+                                    <circle cx="12" cy="12" r="12" fill="#e63946" stroke="none" />
                                     <line x1="7" y1="9" x2="17" y2="9" />
                                     <line x1="10" y1="9" x2="10" y2="7" />
                                     <line x1="14" y1="9" x2="14" y2="7" />
-                                    <rect
-                                        x="8"
-                                        y="10"
-                                        width="8"
-                                        height="8"
-                                        rx="1" />
+                                    <rect x="8" y="10" width="8" height="8" rx="1" />
                                     <line x1="10" y1="12" x2="10" y2="16" />
                                     <line x1="14" y1="12" x2="14" y2="16" />
                                 </svg>
                             </a>
                         </div>
                         <div class="card-rating">
-                            <a
-                                ><svg
-                                    data-rating="1"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                            <a><svg data-rating="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="2"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="3"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="#F5A623"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="4"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="#F5A623" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="none"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
-                            <a
-                                ><svg
-                                    data-rating="5"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 100 100"
-                                    width="20"
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="none" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
+                            <a><svg data-rating="5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20"
                                     height="20">
-                                    <polygon
-                                        points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
-                                        fill="none"
-                                        stroke="#E8940F"
-                                        stroke-width="1.5" /></svg
-                            ></a>
+                                    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35"
+                                        fill="none" stroke="#E8940F" stroke-width="1.5" />
+                                </svg></a>
                         </div>
                     </div>
                     <p class="movie-title">Monarch: Legacy of Monsters</p>

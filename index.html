@@ -1,273 +1,293 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./styles/main.css">
-        <link rel="stylesheet" href="./styles/index.css">
-        <script src="./js/render-movies.js" defer></script>
-        <script src="./js/data/movies.js" defer></script>
-        <script type="module" src="./js/search.js" defer></script>
-        <title>MovieFlix</title>
-    </head>
+<html lang="en">
 
-    <body>
-        <div id="page">
-            <!-- HEADER -->
-            <header>
-                <div>
-                    <a class="logo" href="./index.html">MOVIEFLIX</a>
-                    <nav>
-                        <!-- Lägg active-nav class till era respektive html-->
-                        <a href="./index.html" class="active-nav">Home</a>
-                        <a href="./tvshows.html">TV Shows</a>
-                        <a href="./movies.html">Movies</a>
-                        <a href="./newreleases.html">New & Popular</a>
-                        <a href="./profile.html">My List</a>
-                    </nav>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <script src="./js/render-movies.js" defer></script>
+    <script src="./js/data/movies.js" defer></script>
+    <script type="module" src="./js/search.js" defer></script>
+    <title>MovieFlix</title>
+</head>
 
-                <div>
-                    <div id="search-container">
-                        <button id="search-button" class="search-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                            </svg>
-                        </button>    
-                    </div>    
-                    <span class="profile">U</span>
-                </div>
-            </header>
-            <div id="search-panel" class="search-panel">
-                <div class="search-header">
-                    <input type="text" id="search-field" placeholder="Search movies or tvshows...">
-                    <button id="search-exit-button" class="search-exit-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search-exit" viewBox="0 0 16 16">
-                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+<body>
+    <div id="page">
+        <!-- HEADER -->
+        <header>
+            <div>
+                <a class="logo" href="./index.html">MOVIEFLIX</a>
+                <nav>
+                    <!-- Lägg active-nav class till era respektive html-->
+                    <a href="./index.html" class="active-nav">Home</a>
+                    <a href="./tvshows.html">TV Shows</a>
+                    <a href="./movies.html">Movies</a>
+                    <a href="./newreleases.html">New & Popular</a>
+                    <a href="./profile.html">My List</a>
+                </nav>
+            </div>
+
+            <div>
+                <div id="search-container">
+                    <button id="search-button" class="search-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                         </svg>
                     </button>
                 </div>
-                <div id="search-results" class="search-results">
-                    <h4 id="result-text">Result for: 
-                        <span id=search-text></span>
-                    </h4>
-                    <div id="result-list" class="result-list">
-                    
-                    </div>
-                </div>
-            </div>    
+                <span class="profile">U</span>
+            </div>
+        </header>
+        <div id="search-panel" class="search-panel">
+            <div class="search-header">
+                <input type="text" id="search-field" placeholder="Search movies or tvshows...">
+                <button id="search-exit-button" class="search-exit-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-search-exit" viewBox="0 0 16 16">
+                        <path
+                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                    </svg>
+                </button>
+            </div>
+            <div id="search-results" class="search-results">
+                <h4 id="result-text">Result for:
+                    <span id=search-text></span>
+                </h4>
+                <div id="result-list" class="result-list">
 
-            <!-- HERO SECTIOn -->
-            <section class="hero">
-                <div class="hero-meta">
-                    <h1 class="movie-title">Squid Game</h1>
-                    <span class="movie-match">98% Match</span>
-                    <span class="movie-released-year">2026</span>
-                    <span class="movie-age-rating">PG-13</span>
-                    <span class="length">45m</span>
-                    <p class="movie-description">Hundreds of cash-strapped players accept a strange invitation <br> to compete in children's games. A tempting prize awaits, <br> but with deadly high stakes.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- HERO SECTIOn -->
+        <section class="hero">
+            <div class="hero-meta">
+                <h1 class="movie-title">Squid Game</h1>
+                <span class="movie-match">98% Match</span>
+                <span class="movie-released-year">2026</span>
+                <span class="movie-age-rating">PG-13</span>
+                <span class="length">45m</span>
+                <p class="movie-description">Hundreds of cash-strapped players accept a strange invitation <br> to
+                    compete in children's games. A tempting prize awaits, <br> but with deadly high stakes.</p>
+            </div>
+
+            <div class="hero-btns">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                        <path
+                            d="M187.2 100.9C174.8 94.1 159.8 94.4 147.6 101.6C135.4 108.8 128 121.9 128 136L128 504C128 518.1 135.5 531.2 147.6 538.4C159.7 545.6 174.8 545.9 187.2 539.1L523.2 355.1C536 348.1 544 334.6 544 320C544 305.4 536 291.9 523.2 284.9L187.2 100.9z" />
+                    </svg>
+                    Play
+                </button>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-exclamation-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+                        <path
+                            d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z" />
+                    </svg>
+                    More Info
+                </button>
+            </div>
+        </section>
+
+        <!-- MAIN AND LOTS OF CARDS -->
+        <main>
+            <h3>Trending Now</h3>
+            <section class="trending-now">
+                <div class="card" style="background-image: url('./assets/trending-images/Detective\ Hole.png');">
+                    <p class="movie-title">Detective Hole</p>
+                    <p class="movie-info">2024 • PG-16</p>
                 </div>
 
-                <div class="hero-btns">
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
-                            <path d="M187.2 100.9C174.8 94.1 159.8 94.4 147.6 101.6C135.4 108.8 128 121.9 128 136L128 504C128 518.1 135.5 531.2 147.6 538.4C159.7 545.6 174.8 545.9 187.2 539.1L523.2 355.1C536 348.1 544 334.6 544 320C544 305.4 536 291.9 523.2 284.9L187.2 100.9z"/>
-                        </svg>
-                        Play
-                    </button>
-                    <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                            <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-                        </svg>
-                        More Info
-                    </button>
+                <div class="card" style="background-image: url('./assets/trending-images/Jujutsu_kaisen.png');">
+                    <p class="movie-title">Jujutsu Kaisen</p>
+                    <p class="movie-info">2020 • PG-13</p>
+                </div>
+
+                <div class="card"
+                    style="background-image: url('./assets/trending-images/Peaky_Blinders_-_The_Immortal_Man_poster.png');">
+                    <p class="movie-title">Peaky Blinders: The Immortal Man</p>
+                    <p class="movie-info">2024 • R</p>
+                </div>
+
+                <div class="card" style="background-image: url('./assets/trending-images/The\ Pitt.png');">
+                    <p class="movie-title">The Pitt</p>
+                    <p class="movie-info">2024 • PG-156</p>
+                </div>
+
+                <div class="card" style="background-image: url('./assets/trending-images/War_Machine.jpeg.png');">
+                    <p class="movie-title">War Machinee</p>
+                    <p class="movie-info">2024 • R</p>
+                </div>
+
+                <div class="card" style="background-image: url('./assets/trending-images/Zootopia.png');">
+                    <p class="movie-title">Detective Hole</p>
+                    <p class="movie-info">2024 • PG-8</p>
                 </div>
             </section>
 
-            <!-- MAIN AND LOTS OF CARDS -->
-            <main>
-                <h3>Trending Now</h3>
-                <section class="trending-now">
-                    <div class="card" style="background-image: url('./assets/trending-images/Detective\ Hole.png');">
-                        <p class="movie-title">Detective Hole</p>
-                        <p class="movie-info">2024 • PG-16</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/trending-images/Jujutsu_kaisen.png');">
-                        <p class="movie-title">Jujutsu Kaisen</p>
-                        <p class="movie-info">2020 • PG-13</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/trending-images/Peaky_Blinders_-_The_Immortal_Man_poster.png');">
-                        <p class="movie-title">Peaky Blinders: The Immortal Man</p>
-                        <p class="movie-info">2024 • R</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/trending-images/The\ Pitt.png');">
-                        <p class="movie-title">The Pitt</p>
-                        <p class="movie-info">2024 • PG-156</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/trending-images/War_Machine.jpeg.png');">
-                        <p class="movie-title">War Machinee</p>
-                        <p class="movie-info">2024 • R</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/trending-images/Zootopia.png');">
-                        <p class="movie-title">Detective Hole</p>
-                        <p class="movie-info">2024 • PG-8</p>
-                    </div>
-                </section>
-
-                <h3>Action & Adventure</h3>
-                <section class="action-and-anventure">
-                    <div class="card" style="background-image: url('./assets/action-and-adventure-images/Casino\ Royale.png');">
-                        <p class="movie-title">Casino Royale</p>
-                        <p class="movie-info">2006 • PG-14</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/action-and-adventure-images/Legacy_of_Monsters_Poster.png');">
-                        <p class="movie-title">Monarch: Legacy of Monsters</p>
-                        <p class="movie-info">2023 • PG-13</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/action-and-adventure-images/One\ Piece.png');">
-                        <p class="movie-title">One Piece</p>
-                        <p class="movie-info">2023 • PG-11</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/action-and-adventure-images/The\ Avatar.png');">
-                        <p class="movie-title">Avatar</p>
-                        <p class="movie-info">2009 • PG-13</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/action-and-adventure-images/The\ Lost\ City\ Poster.png');">
-                        <p class="movie-title">The Lost City</p>
-                        <p class="movie-info">2022 • PG-13</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/action-and-adventure-images/Vikings\ Valhalla_.png');">
-                        <p class="movie-title">Vikings: Valhalla</p>
-                        <p class="movie-info">2022 • PG-16</p>
-                    </div>
-                </section>
-
-                <h3>Sci-Fi & Fantasy</h3>
-                <section class="scifi-and-fantasy">
-                    <div class="card" style="background-image: url('./assets/scifi-and-fantasy/3\ Body\ Problem.png');">
-                        <p class="movie-title">3 Body Problem</p>
-                        <p class="movie-info">2024 • PG-15</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/scifi-and-fantasy/Donnie\ Darko.png');">
-                        <p class="movie-title">Donnie Darko</p>
-                        <p class="movie-info">2001 • PG-17</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/scifi-and-fantasy/Inception.png');">
-                        <p class="movie-title">Inception</p>
-                        <p class="movie-info">2010 • PG-14</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/scifi-and-fantasy/The_Endless.png');">
-                        <p class="movie-title">The Endless</p>
-                        <p class="movie-info">2018 • PG-16</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/scifi-and-fantasy/The_Sandman.png');">
-                        <p class="movie-title">The Sandman</p>
-                        <p class="movie-info">2022 • PG-15</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/scifi-and-fantasy/Westworld.png');">
-                        <p class="movie-title">Westworld</p>
-                        <p class="movie-info">2016 • PG-17</p>
-                    </div>
-                </section>
-
-                <h3>Drama</h3>
-                <section class="drama">
-                    <div class="card" style="background-image: url('./assets/drama-images/Mad\ men.jpg');">
-                        <p class="movie-title">Mad Men</p>
-                        <p class="movie-info">2007 • PG-15</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/drama-images/Steve.jpg');">
-                        <p class="movie-title">Steve</p>
-                        <p class="movie-info">2025 • PG-15</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/drama-images/The\ boys.jpg');">
-                        <p class="movie-title">The Boys</p>
-                        <p class="movie-info">2016 • R18</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/drama-images/The\ guilty.jpg');">
-                        <p class="movie-title">The Guilty</p>
-                        <p class="movie-info">2021 • PG-16</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/drama-images/The\ last\ bus.jpg');">
-                        <p class="movie-title">The Lost Bus</p>
-                        <p class="movie-info">2016 • PG-14</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/drama-images/True\ detective.jpg');">
-                        <p class="movie-title">True Detective</p>
-                        <p class="movie-info">2014 • PG-16</p>
-                    </div>
-                </section>
-
-                <h3>Recommended For You</h3>
-                <section class="recommended">
-                    <div class="card" style="background-image: url('./assets/trending-images/Jujutsu_kaisen.png');">
-                        <p class="movie-title">Jujutsu Kaisen</p>
-                        <p class="movie-info">2020 • PG-13</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/trending-images/Peaky_Blinders_-_The_Immortal_Man_poster.png');">
-                        <p class="movie-title">Peaky Blinders: The Immortal Man</p>
-                        <p class="movie-info">2024 • R</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/action-and-adventure-images/Vikings\ Valhalla_.png');">
-                        <p class="movie-title">Vikings: Valhalla</p>
-                        <p class="movie-info">2022 • PG-16</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/scifi-and-fantasy/Westworld.png');">
-                        <p class="movie-title">Westworld</p>
-                        <p class="movie-info">2016 • PG-17</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/action-and-adventure-images/Legacy_of_Monsters_Poster.png');">
-                        <p class="movie-title">Monarch: Legacy of Monsters</p>
-                        <p class="movie-info">2023 • PG-13</p>
-                    </div>
-
-                    <div class="card" style="background-image: url('./assets/drama-images/The\ guilty.jpg');">
-                        <p class="movie-title">The Guilty</p>
-                        <p class="movie-info">2021 • PG-16</p>
-                    </div>
-                </section>
-
-                <div id="community-section">
-                    
+            <h3>Action & Adventure</h3>
+            <section class="action-and-anventure">
+                <div class="card"
+                    style="background-image: url('./assets/action-and-adventure-images/Casino\ Royale.png');">
+                    <p class="movie-title">Casino Royale</p>
+                    <p class="movie-info">2006 • PG-14</p>
                 </div>
-            </main>
 
-            <footer>
-                <nav>
-                    <a href="#">Audio and Subtitles</a>
-                    <a href="#">Help Center</a>
-                    <a href="#">Gift Cards</a>
-                    <a href="#">Media Center</a>
-                    <a href="./form.html">Publish a Movie</a>
-                </nav>
+                <div class="card"
+                    style="background-image: url('./assets/action-and-adventure-images/Legacy_of_Monsters_Poster.png');">
+                    <p class="movie-title">Monarch: Legacy of Monsters</p>
+                    <p class="movie-info">2023 • PG-13</p>
+                </div>
 
-                <p class="copyright">© 2026 MovieFlix, Inc.</p>
-            </footer>
-        </div>
-    </body>
+                <div class="card" style="background-image: url('./assets/action-and-adventure-images/One\ Piece.png');">
+                    <p class="movie-title">One Piece</p>
+                    <p class="movie-info">2023 • PG-11</p>
+                </div>
+
+                <div class="card"
+                    style="background-image: url('./assets/action-and-adventure-images/The\ Avatar.png');">
+                    <p class="movie-title">Avatar</p>
+                    <p class="movie-info">2009 • PG-13</p>
+                </div>
+
+                <div class="card"
+                    style="background-image: url('./assets/action-and-adventure-images/The\ Lost\ City\ Poster.png');">
+                    <p class="movie-title">The Lost City</p>
+                    <p class="movie-info">2022 • PG-13</p>
+                </div>
+
+                <div class="card"
+                    style="background-image: url('./assets/action-and-adventure-images/Vikings\ Valhalla_.png');">
+                    <p class="movie-title">Vikings: Valhalla</p>
+                    <p class="movie-info">2022 • PG-16</p>
+                </div>
+            </section>
+
+            <h3>Sci-Fi & Fantasy</h3>
+            <section class="scifi-and-fantasy">
+                <div class="card" style="background-image: url('./assets/scifi-and-fantasy/3\ Body\ Problem.png');">
+                    <p class="movie-title">3 Body Problem</p>
+                    <p class="movie-info">2024 • PG-15</p>
+                </div>
+
+                <div class="card" style="background-image: url('./assets/scifi-and-fantasy/Donnie\ Darko.png');">
+                    <p class="movie-title">Donnie Darko</p>
+                    <p class="movie-info">2001 • PG-17</p>
+                </div>
+
+                <div class="card" style="background-image: url('./assets/scifi-and-fantasy/Inception.png');">
+                    <p class="movie-title">Inception</p>
+                    <p class="movie-info">2010 • PG-14</p>
+                </div>
+
+                <div class="card" style="background-image: url('./assets/scifi-and-fantasy/The_Endless.png');">
+                    <p class="movie-title">The Endless</p>
+                    <p class="movie-info">2018 • PG-16</p>
+                </div>
+
+                <div class="card" style="background-image: url('./assets/scifi-and-fantasy/The_Sandman.png');">
+                    <p class="movie-title">The Sandman</p>
+                    <p class="movie-info">2022 • PG-15</p>
+                </div>
+
+                <div class="card" style="background-image: url('./assets/scifi-and-fantasy/Westworld.png');">
+                    <p class="movie-title">Westworld</p>
+                    <p class="movie-info">2016 • PG-17</p>
+                </div>
+            </section>
+
+            <h3>Drama</h3>
+            <section class="drama">
+                <div class="card" style="background-image: url('./assets/drama-images/Mad\ men.jpg');">
+                    <p class="movie-title">Mad Men</p>
+                    <p class="movie-info">2007 • PG-15</p>
+                </div>
+
+                <div class="card" style="background-image: url('./assets/drama-images/Steve.jpg');">
+                    <p class="movie-title">Steve</p>
+                    <p class="movie-info">2025 • PG-15</p>
+                </div>
+
+                <div class="card" style="background-image: url('./assets/drama-images/The\ boys.jpg');">
+                    <p class="movie-title">The Boys</p>
+                    <p class="movie-info">2016 • R18</p>
+                </div>
+
+                <div class="card" style="background-image: url('./assets/drama-images/The\ guilty.jpg');">
+                    <p class="movie-title">The Guilty</p>
+                    <p class="movie-info">2021 • PG-16</p>
+                </div>
+
+                <div class="card" style="background-image: url('./assets/drama-images/The\ last\ bus.jpg');">
+                    <p class="movie-title">The Lost Bus</p>
+                    <p class="movie-info">2016 • PG-14</p>
+                </div>
+
+                <div class="card" style="background-image: url('./assets/drama-images/True\ detective.jpg');">
+                    <p class="movie-title">True Detective</p>
+                    <p class="movie-info">2014 • PG-16</p>
+                </div>
+            </section>
+
+            <h3>Recommended For You</h3>
+            <section class="recommended">
+                <div class="card" style="background-image: url('./assets/trending-images/Jujutsu_kaisen.png');">
+                    <p class="movie-title">Jujutsu Kaisen</p>
+                    <p class="movie-info">2020 • PG-13</p>
+                </div>
+
+                <div class="card"
+                    style="background-image: url('./assets/trending-images/Peaky_Blinders_-_The_Immortal_Man_poster.png');">
+                    <p class="movie-title">Peaky Blinders: The Immortal Man</p>
+                    <p class="movie-info">2024 • R</p>
+                </div>
+
+                <div class="card"
+                    style="background-image: url('./assets/action-and-adventure-images/Vikings\ Valhalla_.png');">
+                    <p class="movie-title">Vikings: Valhalla</p>
+                    <p class="movie-info">2022 • PG-16</p>
+                </div>
+
+                <div class="card" style="background-image: url('./assets/scifi-and-fantasy/Westworld.png');">
+                    <p class="movie-title">Westworld</p>
+                    <p class="movie-info">2016 • PG-17</p>
+                </div>
+
+                <div class="card"
+                    style="background-image: url('./assets/action-and-adventure-images/Legacy_of_Monsters_Poster.png');">
+                    <p class="movie-title">Monarch: Legacy of Monsters</p>
+                    <p class="movie-info">2023 • PG-13</p>
+                </div>
+
+                <div class="card" style="background-image: url('./assets/drama-images/The\ guilty.jpg');">
+                    <p class="movie-title">The Guilty</p>
+                    <p class="movie-info">2021 • PG-16</p>
+                </div>
+            </section>
+
+            <div id="community-section">
+
+            </div>
+        </main>
+
+        <footer>
+            <nav>
+                <a href="#">Audio and Subtitles</a>
+                <a href="#">Help Center</a>
+                <a href="#">Gift Cards</a>
+                <a href="#">Media Center</a>
+                <a href="./form.html">Publish a Movie</a>
+            </nav>
+
+            <p class="copyright">© 2026 MovieFlix, Inc.</p>
+        </footer>
+    </div>
+</body>
+
 </html>

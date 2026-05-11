@@ -1,337 +1,299 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>New & Popular</title>
-        <link rel="stylesheet" href="styles/main.css" />
-        <link rel="stylesheet" href="styles/newreleases.css" />
-    </head>
-    <body>
-        <header>
-            <div>
-                <a class="logo" href="./index.html">MOVIEFLIX</a>
-                <nav>
-                    <a href="./index.html">Home</a>
-                    <a href="./tvshows.html" class="active-nav">TV Shows</a>
-                    <a href="./movies.html">Movies</a>
-                    <a href="./newreleases.html">New & Popular</a>
-                    <a href="./profile.html">My List</a>
-                </nav>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>New & Popular</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/newreleases.css" />
+    <script src="./js/data/movies.js" defer></script>
+    <script type="module" src="./js/search.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div>
+            <a class="logo" href="./index.html">MOVIEFLIX</a>
+            <nav>
+                <!-- Lägg active-nav class till era respektive html-->
+                <a href="./index.html" class="active-nav">Home</a>
+                <a href="./tvshows.html">TV Shows</a>
+                <a href="./movies.html">Movies</a>
+                <a href="./newreleases.html">New & Popular</a>
+                <a href="./profile.html">My List</a>
+            </nav>
+        </div>
+
+        <div>
+            <div id="search-container">
+                <button id="search-button" class="search-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg>
+                </button>
             </div>
-            <div>
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-search"
-                    viewBox="0 0 16 16">
+            <span class="profile">U</span>
+        </div>
+    </header>
+    <div id="search-panel" class="search-panel">
+        <div class="search-header">
+            <input type="text" id="search-field" placeholder="Search movies or tvshows...">
+            <button id="search-exit-button" class="search-exit-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-search-exit" viewBox="0 0 16 16">
                     <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
                 </svg>
-                <span class="profile">U</span>
+            </button>
+        </div>
+        <div id="search-results" class="search-results">
+            <h4 id="result-text">Result for:
+                <span id=search-text></span>
+            </h4>
+            <div id="result-list" class="result-list">
+
             </div>
-        </header>
-        <main>
-            <section class="hero-new">
-                <h1>New & Popular</h1>
-                <p>Fresh releases and trending titles everyone's watching</p>
-            </section>
-            <section>
-                <h2>New This Week</h2>
-                <div class="card-container">
-                    <div
-                        class="card"
-                        style="
+        </div>
+    </div>
+    <main>
+        <section class="hero-new">
+            <h1>New & Popular</h1>
+            <p>Fresh releases and trending titles everyone's watching</p>
+        </section>
+        <section>
+            <h2>New This Week</h2>
+            <div class="card-container">
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BNTkwNzJiYTctNzI3NC00NjE1LTlhYjktY2Q5MTdmMWFmNzcxXkEyXkFqcGc@._V1_FMjpg_UY4096_.jpg&quot;);
                         ">
-                        <p class="movie-title">Project Hail Mary</p>
-                        <p class="movie-info">2026 • PG-11</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">Project Hail Mary</p>
+                    <p class="movie-info">2026 • PG-11</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BMDg5MjRkNWEtYmU1Mi00MTExLTk5MDQtY2RiMWVkZWNiOThjXkEyXkFqcGc@._V1_FMjpg_UY2500_.jpg&quot;);
                         ">
-                        <p class="movie-title">Super Mario Galaxy</p>
-                        <p class="movie-info">2026 • PG-7</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">Super Mario Galaxy</p>
+                    <p class="movie-info">2026 • PG-7</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BZThlN2M4ZTUtYTU3Mi00MDE5LWFhYWUtNjkxMWEwNjUwNDVhXkEyXkFqcGc@._V1_FMjpg_UY4096_.jpg&quot;);
                         ">
-                        <p class="movie-title">Crime 101</p>
-                        <p class="movie-info">2026 • PG-15</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">Crime 101</p>
+                    <p class="movie-info">2026 • PG-15</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BMTcwOGZhYmItYTg3ZS00NjUwLWJiMmQtMjU5YjEwYWY0NmNkXkEyXkFqcGc@._V1_FMjpg_UY3000_.jpg&quot;);
                         ">
-                        <p class="movie-title">The Drama</p>
-                        <p class="movie-info">2026 • PG-11</p>
-                    </div>
+                    <p class="movie-title">The Drama</p>
+                    <p class="movie-info">2026 • PG-11</p>
                 </div>
-            </section>
-            <section>
-                <h2>Trending Now</h2>
-                <div class="card-container">
-                    <div
-                        class="card"
-                        style="
+            </div>
+        </section>
+        <section>
+            <h2>Trending Now</h2>
+            <div class="card-container">
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BNTkwNzJiYTctNzI3NC00NjE1LTlhYjktY2Q5MTdmMWFmNzcxXkEyXkFqcGc@._V1_FMjpg_UY4096_.jpg&quot;);
                         ">
-                        <p class="movie-title">Project Hail Mary</p>
-                        <p class="movie-info">2026 • PG-11</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">Project Hail Mary</p>
+                    <p class="movie-info">2026 • PG-11</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;./assets/tvshows-images/pitt.webp&quot;);
                         ">
-                        <p class="movie-title">The Pitt</p>
-                        <p class="movie-info">2025 • PG-12</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">The Pitt</p>
+                    <p class="movie-info">2025 • PG-12</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BMDg5MjRkNWEtYmU1Mi00MTExLTk5MDQtY2RiMWVkZWNiOThjXkEyXkFqcGc@._V1_FMjpg_UY2500_.jpg&quot;);
                         ">
-                        <p class="movie-title">Super Mario Galaxy</p>
-                        <p class="movie-info">2026 • PG-7</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">Super Mario Galaxy</p>
+                    <p class="movie-info">2026 • PG-7</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;./assets/action-and-adventure-images/One\ Piece.png&quot;);
                         ">
-                        <p class="movie-title">One Piece</p>
-                        <p class="movie-info">2024 • PG-14</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">One Piece</p>
+                    <p class="movie-info">2024 • PG-14</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;./assets/trending-images/Zootopia.png&quot;);
                         ">
-                        <p class="movie-title">Zootopia</p>
-                        <p class="movie-info">2016 • PG-7</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">Zootopia</p>
+                    <p class="movie-info">2016 • PG-7</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;./assets/trending-images/Detective\ Hole.png&quot;);
                         ">
-                        <p class="movie-title">Detective Hole</p>
-                        <p class="movie-info">2024 • PG-16</p>
-                    </div>
+                    <p class="movie-title">Detective Hole</p>
+                    <p class="movie-info">2024 • PG-16</p>
+                </div>
 
-                    <div
-                        class="card"
-                        style="
+                <div class="card" style="
                             background-image: url(&quot;./assets/trending-images/Jujutsu_kaisen.png&quot;);
                         ">
-                        <p class="movie-title">Jujutsu Kaisen</p>
-                        <p class="movie-info">2020 • PG-13</p>
-                    </div>
+                    <p class="movie-title">Jujutsu Kaisen</p>
+                    <p class="movie-info">2020 • PG-13</p>
+                </div>
 
-                    <div
-                        class="card"
-                        style="
+                <div class="card" style="
                             background-image: url(&quot;./assets/trending-images/Peaky_Blinders_-_The_Immortal_Man_poster.png&quot;);
                         ">
-                        <p class="movie-title">
-                            Peaky Blinders: The Immortal Man
-                        </p>
-                        <p class="movie-info">2024 • R</p>
-                    </div>
+                    <p class="movie-title">
+                        Peaky Blinders: The Immortal Man
+                    </p>
+                    <p class="movie-info">2024 • R</p>
                 </div>
-            </section>
-            <section>
-                <h2>Top 10 in Your Country</h2>
-                <div class="card-container">
-                    <div
-                        class="card"
-                        style="
+            </div>
+        </section>
+        <section>
+            <h2>Top 10 in Your Country</h2>
+            <div class="card-container">
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BODcyMDM5YzQtNjBhOS00ZjFmLTlhZTMtY2FhMjA3NjFjYjdiXkEyXkFqcGc@._V1_FMjpg_UX450_.jpg&quot;);
                         ">
-                        <p class="movie-title">Love is Blind Sverige</p>
-                        <p class="movie-info">2024 • PG-16</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">Love is Blind Sverige</p>
+                    <p class="movie-info">2024 • PG-16</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BNDBiMTQ2NzQtYjk2NS00NGRjLTliMDctNWMzOTQ0MTlmYmMzXkEyXkFqcGc@._V1_FMjpg_UX646_.jpg&quot;);
                         ">
-                        <p class="movie-title">Glaskupan</p>
-                        <p class="movie-info">2025 • TV-MA</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">Glaskupan</p>
+                    <p class="movie-info">2025 • TV-MA</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BODUzN2M2ZjYtZDczNS00YTRkLWI1ZjUtMzUyZTNlMmZjMGI1XkEyXkFqcGc@._V1_FMjpg_UX1200_.jpg&quot;);
                         ">
-                        <p class="movie-title">I Dina Händer</p>
-                        <p class="movie-info">2024 • TV-MA</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">I Dina Händer</p>
+                    <p class="movie-info">2024 • TV-MA</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BM2M1MzExNGMtYzVlZi00NGUzLWE1MjEtOGZhNmYwNWIyZDI2XkEyXkFqcGc@._V1_FMjpg_UX450_.jpg&quot;);
                         ">
-                        <p class="movie-title">En Del Av Dig</p>
-                        <p class="movie-info">2024 • TV-14</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">En Del Av Dig</p>
+                    <p class="movie-info">2024 • TV-14</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;./assets/trending-images/The\ Pitt.png&quot;);
                         ">
-                        <p class="movie-title">The Pitt</p>
-                        <p class="movie-info">2025 • TV-MA</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">The Pitt</p>
+                    <p class="movie-info">2025 • TV-MA</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BNGY1YjBiNzMtYWZhNC00OWViLWE0MzItNjc4YzczOGNiM2I0XkEyXkFqcGc@._V1_FMjpg_UY2222_.jpg&quot;);
                         ">
-                        <p class="movie-title">Adolescence</p>
-                        <p class="movie-info">2025 • TV-MA</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">Adolescence</p>
+                    <p class="movie-info">2025 • TV-MA</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BODBjMTlkOWQtNGRkYy00MmNlLWIxYmMtMzU5MjE0ZDJiNjI3XkEyXkFqcGc@._V1_FMjpg_UY1928_.jpg&quot;);
                         ">
-                        <p class="movie-title">En Helt Vanlig Familj</p>
-                        <p class="movie-info">2023 • TV-14</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">En Helt Vanlig Familj</p>
+                    <p class="movie-info">2023 • TV-14</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BNzNhZmY1NWItMzg2Ny00ODJhLWE5YjYtODZlODc4N2I0M2JjXkEyXkFqcGc@._V1_FMjpg_UX607_.jpg&quot;);
                         ">
-                        <p class="movie-title">Snabba Cash</p>
-                        <p class="movie-info">2021 • TV-MA</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">Snabba Cash</p>
+                    <p class="movie-info">2021 • TV-MA</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BOTY5N2M2YTctZDUzNi00ZGY0LTk3MzItZTBhZTY5M2VmZTVjXkEyXkFqcGc@._V1_FMjpg_UY2057_.jpg&quot;);
                         ">
-                        <p class="movie-title">Den stygge stesøsteren</p>
-                        <p class="movie-info">2025 • TV-14</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">Den stygge stesøsteren</p>
+                    <p class="movie-info">2025 • TV-14</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BNTExMDQ0OTMtYzZjYS00YWEzLTk5ZWYtMGUzYWZlNjYxNDcwXkEyXkFqcGc@._V1_FMjpg_UX450_.jpg&quot;);
                         ">
-                        <p class="movie-title">Kärlek Fårever</p>
-                        <p class="movie-info">2025 • PG-13</p>
-                    </div>
+                    <p class="movie-title">Kärlek Fårever</p>
+                    <p class="movie-info">2025 • PG-13</p>
                 </div>
-            </section>
-            <section>
-                <h2>New TV Shows</h2>
-                <div class="card-container">
-                    <div
-                        class="card"
-                        style="
+            </div>
+        </section>
+        <section>
+            <h2>New TV Shows</h2>
+            <div class="card-container">
+                <div class="card" style="
                             background-image: url(&quot;./assets/action-and-adventure-images/One\ Piece.png&quot;);
                         ">
-                        <p class="movie-title">One Piece</p>
-                        <p class="movie-info">2024 • PG-14</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">One Piece</p>
+                    <p class="movie-info">2024 • PG-14</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BODcyMDM5YzQtNjBhOS00ZjFmLTlhZTMtY2FhMjA3NjFjYjdiXkEyXkFqcGc@._V1_FMjpg_UX450_.jpg&quot;);
                         ">
-                        <p class="movie-title">Love is Blind Sverige</p>
-                        <p class="movie-info">2024 • PG-16</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">Love is Blind Sverige</p>
+                    <p class="movie-info">2024 • PG-16</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;./assets/tvshows-images/outlander.jpg&quot;);
                         ">
-                        <p class="movie-title">Outlander</p>
-                        <p class="movie-info">2014 • PG-15</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">Outlander</p>
+                    <p class="movie-info">2014 • PG-15</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BZjU4OWNiYzQtMzc1NS00NjZlLTgyYTctZWY4ZmEzMTkxYjA4XkEyXkFqcGc@._V1_.jpg&quot;);
                         ">
-                        <p class="movie-title">The Boys</p>
-                        <p class="movie-info">2019 • PG-18</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">The Boys</p>
+                    <p class="movie-info">2019 • PG-18</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BMjZhODhiYmEtNTg0ZS00Mjc0LTk0NTYtMGEwMGFlNjFkZGM0XkEyXkFqcGc@._V1_.jpg&quot;);
                         ">
-                        <p class="movie-title">The Testaments</p>
-                        <p class="movie-info">2026 • TV-MA</p>
-                    </div>
+                    <p class="movie-title">The Testaments</p>
+                    <p class="movie-info">2026 • TV-MA</p>
                 </div>
-            </section>
-            <section>
-                <h2>Coming Soon</h2>
-                <div class="card-container">
-                    <div
-                        class="card"
-                        style="
+            </div>
+        </section>
+        <section>
+            <h2>Coming Soon</h2>
+            <div class="card-container">
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BNDhlNTAyYTgtOGRmZS00ZmE0LTk4ZTUtMjk3ZjZhMWE4YWY0XkEyXkFqcGc@._V1_.jpg&quot;);
                         ">
-                        <p class="movie-title">The Mummy</p>
-                        <p class="movie-info">2026 • PG-18</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">The Mummy</p>
+                    <p class="movie-info">2026 • PG-18</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BNzllNmRlN2EtMDQyOC00ODJjLTg4OWQtZDNmNGU3YzlkNjc1XkEyXkFqcGc@._V1_.jpg&quot;);
                         ">
-                        <p class="movie-title">Michael</p>
-                        <p class="movie-info">2026 • PG-11</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">Michael</p>
+                    <p class="movie-info">2026 • PG-11</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BN2MzMjMyNmQtYzkwMC00NTM2LThmN2ItMTczMGVmNGY5ODZlXkEyXkFqcGc@._V1_.jpg&quot;);
                         ">
-                        <p class="movie-title">Masters of the Universe</p>
-                        <p class="movie-info">2026 • PG-15</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">Masters of the Universe</p>
+                    <p class="movie-info">2026 • PG-15</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BNDllZjAzODktMTlmZS00ZDA2LTlmOTAtODgzZjQ0NTZlMjBlXkEyXkFqcGc@._V1_.jpg&quot;);
                         ">
-                        <p class="movie-title">Avatar: The Last Airbender</p>
-                        <p class="movie-info">2024 • PG</p>
-                    </div>
-                    <div
-                        class="card"
-                        style="
+                    <p class="movie-title">Avatar: The Last Airbender</p>
+                    <p class="movie-info">2024 • PG</p>
+                </div>
+                <div class="card" style="
                             background-image: url(&quot;https://m.media-amazon.com/images/M/MV5BMTgwNDI1ZjctYWNmMS00MTJhLTg1ZWItMzI1Yjk5NjZkYWFkXkEyXkFqcGc@._V1_.jpg&quot;);
                         ">
-                        <p class="movie-title">Disclosure Day</p>
-                        <p class="movie-info">2026 • No rating yet</p>
-                    </div>
+                    <p class="movie-title">Disclosure Day</p>
+                    <p class="movie-info">2026 • No rating yet</p>
                 </div>
-            </section>
-        </main>
-        <footer>
-            <nav>
-                <a href="#">Audio and Subtitles</a>
-                <a href="#">Help Center</a>
-                <a href="#">Gift Cards</a>
-                <a href="#">Media Center</a>
-                <a href="./form.html">Publish a Movie</a>
-            </nav>
-            <p class="copyright">© 2026 MovieFlix, Inc.</p>
-        </footer>
-    </body>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <nav>
+            <a href="#">Audio and Subtitles</a>
+            <a href="#">Help Center</a>
+            <a href="#">Gift Cards</a>
+            <a href="#">Media Center</a>
+            <a href="./form.html">Publish a Movie</a>
+        </nav>
+        <p class="copyright">© 2026 MovieFlix, Inc.</p>
+    </footer>
+</body>
+
 </html>
