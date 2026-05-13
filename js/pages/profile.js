@@ -1,5 +1,8 @@
 import { getMoviesCopy, setMovies } from "/js/data/movies.js";
-import { saveToLocalStorage, fetchFromLocalStorage } from "/js/data/localstorage.js";
+import {
+    saveToLocalStorage,
+    fetchFromLocalStorage,
+} from "/js/data/localstorage.js";
 
 // CHANGE RATINGS ON PROFILE-PAGE MOVIES IN MY LIST
 function changeRating(e) {
@@ -14,13 +17,8 @@ function changeRating(e) {
         .querySelector(".movie-title").textContent;
 
     let moviesCopy = getMoviesCopy();
-    moviesCopy.forEach((movie) => {
-        if (movieTitle != movie.title) {
-            return;
-        } else {
-            movie.rating = chosenRating;
-        }
-    });
+    let movie = moviesCopy.find((movie) => movie.title === movieTitle);
+    movie.rating = chosenRating;
 
     setMovies(moviesCopy);
     saveToLocalStorage();
@@ -35,38 +33,66 @@ function changeRating(e) {
     });
 }
 
-//RENDER TO MY LIST
-function renderToMyList() {
+// CONSOLIDATE AND RENDER TO BOTH FAVORITES AND MY LIST
+function renderMovies() {
+    const moviesCopy = getMoviesCopy();
+
+    let myListMovies = [];
+    let favoritesMovies = [];
+
+    moviesCopy.forEach((movie) => {
+        if (movie.categories.includes("my-list")) {
+            myListMovies.push(movie);
+        } else if (movie.categories.includes("favorite")) {
+            favoritesMovies.push(movie);
+        }
+    });
+
+    renderToMyList(myListMovies);
+    renderToFavorites(favoritesMovies);
+}
+
+// RENDER TO MY LIST
+function renderToMyList(moviesToRender) {
     const myListContainer = document
         .querySelector(".list-header")
         .closest("section")
         .querySelector(".container");
 
-    if (myListContainer === null) {
-        return;
-    }
+    moviesToRender.forEach((movie) => {
+        const cardWrapper = document.createElement("div");
+        cardWrapper.classList.add("card-wrapper");
 
-    const moviesCopy = getMoviesCopy();
-    let moviesToRender = [];
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.style.backgroundImage = `url("${movie.image}")`;
 
-    moviesCopy.forEach((movie) => {
-        if (movie.categories.includes("my-list")) {
-            moviesToRender.push(movie);
+        const cardButtons = document.createElement("div");
+        cardButtons.classList.add("card-buttons");
+        cardButtons.innerHTML = renderCardButtons();
 
-            const card = document.createElement("div");
-            card.classList.add("card-wrapper");
-            card.innerHTML = `<div class="card" style="background-image: url('${movie.image}')">
-                <div class="card-buttons">${renderCardButtons()}</div>
-                <div class="card-rating">${renderStars(movie.rating)}</div>
-                <p class="movie-title">${movie.title}</p>
-                <p class="movie-info">${movie.year} • ${movie.ageRating}</p>
-                </div>`;
+        const cardRating = document.createElement("div");
+        cardRating.classList.add("card-rating");
+        cardRating.innerHTML = renderStars(movie.rating);
 
-            myListContainer.appendChild(card);
-        }
+        const movieTitle = document.createElement("p");
+        movieTitle.classList.add("movie-title");
+        movieTitle.textContent = `${movie.title}`;
+
+        const movieInfo = document.createElement("p");
+        movieInfo.classList.add("movie-info");
+        movieInfo.textContent = `${movie.year} • ${movie.ageRating}`;
+
+        card.append(cardButtons, cardRating, movieTitle, movieInfo);
+        cardWrapper.append(card);
+        myListContainer.append(cardWrapper);
     });
 
     function renderStars(rating) {
+        if (isNaN(rating)) {
+            return `<p>Rating unavailable.</p>`;
+        }
+
         let ratingStars = "";
         for (let i = 1; i <= 5; i++) {
             let fill = "none";
@@ -89,34 +115,36 @@ function renderToMyList() {
 }
 
 //RENDER TO FAVORITES
-function renderToFavorites() {
+function renderToFavorites(moviesToRender) {
     const favoritesContainer = document
         .querySelector(".favorites-header")
         .closest("section")
         .querySelector(".container");
 
-    if (favoritesContainer === null) {
-        return;
-    }
+    moviesToRender.forEach((movie) => {
+        const cardWrapper = document.createElement("div");
+        cardWrapper.classList.add("card-wrapper");
 
-    const moviesCopy = getMoviesCopy();
-    let moviesToRender = [];
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.style.backgroundImage = `url("${movie.image}")`;
 
-    moviesCopy.forEach((movie) => {
-        if (movie.categories.includes("favorite")) {
-            moviesToRender.push(movie);
+        const cardButtons = document.createElement("div");
+        cardButtons.classList.add("card-buttons");
+        cardButtons.innerHTML = renderCardButtons();
 
-            const card = document.createElement("div");
-            card.classList.add("card-wrapper");
-            card.innerHTML = `<div class="card" style="background-image: url('${movie.image}')">
-                ${renderHeartButton()}
-                <div class="card-buttons">${renderCardButtons()}</div>
-                <p class="movie-title">${movie.title}</p>
-                <p class="movie-info">${movie.year} • ${movie.ageRating}</p>
-                </div>`;
+        const movieTitle = document.createElement("p");
+        movieTitle.classList.add("movie-title");
+        movieTitle.textContent = movie.title;
 
-            favoritesContainer.appendChild(card);
-        }
+        const movieInfo = document.createElement("p");
+        movieInfo.classList.add("movie-info");
+        movieInfo.textContent = `${movie.year} • ${movie.ageRating}`;
+
+        card.innerHTML += renderHeartButton();
+        card.append(cardButtons, movieTitle, movieInfo);
+        cardWrapper.append(card);
+        favoritesContainer.append(cardWrapper);
     });
 
     function renderHeartButton() {
@@ -186,8 +214,7 @@ function renderCardButtons() {
 }
 
 fetchFromLocalStorage();
-renderToMyList();
-renderToFavorites();
+renderMovies();
 
 document.querySelectorAll(".card-rating svg").forEach((ratingStar) => {
     ratingStar.addEventListener("click", changeRating);
