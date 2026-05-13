@@ -1311,7 +1311,7 @@ let movies = [
         ageRating: "TV-14",
         duration: "1h/ep",
         genres: ["Action", "Adventure", "Fantasy"],
-        categories: ["tv-show"],
+        categories: ["tv-show", "community"],
         image: "https://m.media-amazon.com/images/M/MV5BNDllZjAzODktMTlmZS00ZDA2LTlmOTAtODgzZjQ0NTZlMjBlXkEyXkFqcGc@._V1_.jpg",
     },
 
