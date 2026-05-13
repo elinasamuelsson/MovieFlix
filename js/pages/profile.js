@@ -1,8 +1,8 @@
 import { getMoviesCopy, setMovies } from "/js/data/movies.js";
-import { saveToLocalStorage } from "/js/data/localstorage.js";
+import { saveToLocalStorage, fetchFromLocalStorage } from "/js/data/localstorage.js";
 
-//RATING CHANGES WHEN CLICKED
-export function changeRating(e) {
+// CHANGE RATINGS ON PROFILE-PAGE MOVIES IN MY LIST
+function changeRating(e) {
     const clicked = e.currentTarget;
     const chosenRating = Number(clicked.dataset.rating);
     const allRatingStars = clicked
@@ -36,7 +36,7 @@ export function changeRating(e) {
 }
 
 //RENDER TO MY LIST
-export function renderToMyList() {
+function renderToMyList() {
     const myListContainer = document
         .querySelector(".list-header")
         .closest("section")
@@ -89,7 +89,7 @@ export function renderToMyList() {
 }
 
 //RENDER TO FAVORITES
-export function renderToFavorites() {
+function renderToFavorites() {
     const favoritesContainer = document
         .querySelector(".favorites-header")
         .closest("section")
@@ -184,3 +184,11 @@ function renderCardButtons() {
                     </svg>
                 </a>`;
 }
+
+fetchFromLocalStorage();
+renderToMyList();
+renderToFavorites();
+
+document.querySelectorAll(".card-rating svg").forEach((ratingStar) => {
+    ratingStar.addEventListener("click", changeRating);
+});
