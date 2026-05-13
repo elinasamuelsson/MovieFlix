@@ -6,7 +6,8 @@ function displayCommunityMovies() {
     let movies;
 
     movies = getMoviesCopy().filter((movie) =>
-        movie.categories.includes("community"));
+        movie.categories.includes("community"),
+    );
 
     if (movies.length === 0) return;
 
@@ -26,11 +27,15 @@ function displayCommunityMovies() {
         movieCard.className = "card";
         movieCard.style.backgroundImage = `url('${movie.image}')`;
 
-        movieCard.innerHTML = `
-            <p class="movie-title">${movie.title}</p>
-            <p class="movie-info">${movie.year} • ${movie.ageRating}</p>
-        `;
+        const movieTitle = document.createElement("p");
+        movieTitle.classList.add("movie-title");
+        movieTitle.textContent = `${movie.title}`;
 
+        const movieInfo = document.createElement("p");
+        movieInfo.classList.add("movie-info");
+        movieInfo.textContent = `${movie.year} • ${movie.ageRating}`;
+
+        movieCard.append(movieTitle, movieInfo);
         grid.appendChild(movieCard);
     });
 }
