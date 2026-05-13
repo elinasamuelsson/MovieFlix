@@ -135,6 +135,7 @@ header > div > .profile {
 
 .result-list {
     display: flex;
+    flex-wrap: wrap;
     gap: 30px;
     max-width: 300px;
 }
@@ -142,7 +143,10 @@ header > div > .profile {
 .result-card img {
     width: 80px;
     height: 100px;
+}
 
+.result-card p {
+    width: 80px;
 }
 
 

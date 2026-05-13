@@ -8,47 +8,35 @@ const searchText = document.getElementById("search-text");
 const resultList = document.getElementById("result-list");
 const resultText =document.getElementById("result-text");
 
+
 searchButton.addEventListener("click", () => {
-
     searchPanel.style.right = "0";
-
 });
 
 exitButton.addEventListener("click", () => {
-
     searchPanel.style.right = "-400px";
-
 }); 
 
 
 searchField.addEventListener("keydown", (e) => {
-
     if (e.key === "Enter") {
-
         const inputText = searchField.value;
-
         resultText.style.display = "block";
-
         searchText.textContent = inputText;
 
         const results = searchMovies(inputText);
-
-        console.log(results);
+        console.log("RESLUT" + results);
 
         if (results.length === 0) {
-
             resultList.innerHTML = "<p>No matching result was found... Try agin!</p>";
-
             return;
         }
 
         collectMovies(results);
     }
-
 });
 
 function searchMovies(searchText) {
-
     const moviesCopy = getMoviesCopy();
 
     return moviesCopy.filter(movie =>
@@ -56,29 +44,23 @@ function searchMovies(searchText) {
             .toLowerCase()
             .includes(searchText.toLowerCase())
     );
-
 }
 
 function collectMovies(movieList) {
-
     resultList.innerHTML = "";
 
-    movieList.slice(0, 3).forEach(movie => {
+    movieList.slice(0, 9).forEach(movie => {
+        const card = document.createElement("div");
+        card.classList.add("result-card"); 
 
-        resultList.innerHTML += `
-        
-            <div class="result-card">
+        const img = document.createElement("img");
+        const p = document.createElement("p");
 
-                <button>
+        img.src = movie.image;
+        p.textContent = movie.title;
+        card.appendChild(img);
+        card.appendChild(p);
 
-                    <img src="${movie.image}" alt="${movie.title}">
-
-                    <p class="title">${movie.title}</p>
-
-                </button>
-
-            </div>
-        
-        `;
+        resultList.appendChild(card);
     });
 }
