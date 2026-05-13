@@ -5,9 +5,17 @@ export function saveToLocalStorage() {
 }
 
 export function fetchFromLocalStorage() {
-    const storedMovies = JSON.parse(localStorage.getItem("movies"));
+    let storedMovies;
 
-    if (storedMovies != null) {
+    try {
+        storedMovies = JSON.parse(localStorage.getItem("movies")) || [];
+    } catch (e) {
+        console.warn("Error: " + e);
+        localStorage.removeItem("movies");
+        storedMovies = [];
+    }
+
+    if (storedMovies.length != 0) {
         setMovies(storedMovies);
     }
 }
