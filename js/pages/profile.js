@@ -37,16 +37,12 @@ function changeRating(e) {
 function renderMovies() {
     const moviesCopy = getMoviesCopy();
 
-    let myListMovies = [];
-    let favoritesMovies = [];
-
-    moviesCopy.forEach((movie) => {
-        if (movie.categories.includes("my-list")) {
-            myListMovies.push(movie);
-        } else if (movie.categories.includes("favorite")) {
-            favoritesMovies.push(movie);
-        }
-    });
+    let myListMovies = moviesCopy.filter((movie) =>
+        movie.categories.includes("my-list"),
+    );
+    let favoritesMovies = moviesCopy.filter((movie) =>
+        movie.categories.includes("favorite"),
+    );
 
     renderToMyList(myListMovies);
     renderToFavorites(favoritesMovies);
