@@ -33,6 +33,7 @@ function changeRating(e) {
     });
 }
 
+// CONSOLIDATE AND RENDER TO BOTH FAVORITES AND MY LIST
 function renderMovies() {
     const moviesCopy = getMoviesCopy();
 
@@ -51,7 +52,7 @@ function renderMovies() {
     renderToFavorites(favoritesMovies);
 }
 
-//RENDER TO MY LIST
+// RENDER TO MY LIST
 function renderToMyList(moviesToRender) {
     const myListContainer = document
         .querySelector(".list-header")
@@ -59,19 +60,39 @@ function renderToMyList(moviesToRender) {
         .querySelector(".container");
 
     moviesToRender.forEach((movie) => {
-        const card = document.createElement("div");
-        card.classList.add("card-wrapper");
-        card.innerHTML = `<div class="card" style="background-image: url('${movie.image}')">
-                <div class="card-buttons">${renderCardButtons()}</div>
-                <div class="card-rating">${renderStars(movie.rating)}</div>
-                <p class="movie-title">${movie.title}</p>
-                <p class="movie-info">${movie.year} • ${movie.ageRating}</p>
-                </div>`;
+        const cardWrapper = document.createElement("div");
+        cardWrapper.classList.add("card-wrapper");
 
-        myListContainer.appendChild(card);
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.style.backgroundImage = `url("${movie.image}")`;
+
+        const cardButtons = document.createElement("div");
+        cardButtons.classList.add("card-buttons");
+        cardButtons.innerHTML = renderCardButtons();
+
+        const cardRating = document.createElement("div");
+        cardRating.classList.add("card-rating");
+        cardRating.innerHTML = renderStars(movie.rating);
+
+        const movieTitle = document.createElement("p");
+        movieTitle.classList.add("movie-title");
+        movieTitle.textContent = `${movie.title}`;
+
+        const movieInfo = document.createElement("p");
+        movieInfo.classList.add("movie-info");
+        movieInfo.textContent = `${movie.year} • ${movie.ageRating}`;
+
+        card.append(cardButtons, cardRating, movieTitle, movieInfo);
+        cardWrapper.append(card);
+        myListContainer.append(cardWrapper);
     });
 
     function renderStars(rating) {
+        if (isNaN(rating)) {
+            return `<p>Rating unavailable.</p>`;
+        }
+
         let ratingStars = "";
         for (let i = 1; i <= 5; i++) {
             let fill = "none";
@@ -101,16 +122,29 @@ function renderToFavorites(moviesToRender) {
         .querySelector(".container");
 
     moviesToRender.forEach((movie) => {
-        const card = document.createElement("div");
-        card.classList.add("card-wrapper");
-        card.innerHTML = `<div class="card" style="background-image: url('${movie.image}')">
-                ${renderHeartButton()}
-                <div class="card-buttons">${renderCardButtons()}</div>
-                <p class="movie-title">${movie.title}</p>
-                <p class="movie-info">${movie.year} • ${movie.ageRating}</p>
-                </div>`;
+        const cardWrapper = document.createElement("div");
+        cardWrapper.classList.add("card-wrapper");
 
-        favoritesContainer.appendChild(card);
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.style.backgroundImage = `url("${movie.image}")`;
+
+        const cardButtons = document.createElement("div");
+        cardButtons.classList.add("card-buttons");
+        cardButtons.innerHTML = renderCardButtons();
+
+        const movieTitle = document.createElement("p");
+        movieTitle.classList.add("movie-title");
+        movieTitle.textContent = movie.title;
+
+        const movieInfo = document.createElement("p");
+        movieInfo.classList.add("movie-info");
+        movieInfo.textContent = `${movie.year} • ${movie.ageRating}`;
+
+        card.innerHTML += renderHeartButton();
+        card.append(cardButtons, movieTitle, movieInfo);
+        cardWrapper.append(card);
+        favoritesContainer.append(cardWrapper);
     });
 
     function renderHeartButton() {
