@@ -1,35 +1,40 @@
-import { getMoviesCopy } from "/js/data/movies.js";
-import { fetchFromLocalStorage } from "/js/data/localstorage.js";
+import { getMoviesCopy, initializeMovies } from "../data/movies.js";
 
 function displayCommunityMovies() {
-    const communitySection = document.getElementById("community-section");
-    let movies;
+    initializeMovies();
 
-    movies = getMoviesCopy().filter((movie) =>
-        movie.categories.includes("community"),
+    const communitySection = document.getElementById("community-section");
+    if (!communitySection) return;
+
+    const communityMovies = getMoviesCopy().filter((movie) =>
+        movie.categories.includes("community")
     );
 
-    if (movies.length === 0) return;
+    if (communityMovies.length === 0) {
+        communitySection.innerHTML = "";
+        return;
+    }
+
+    communitySection.innerHTML = "";
 
     const communityHeader = document.createElement("h3");
     communityHeader.textContent = "Published by Community";
 
-    const section = document.createElement("section");
-    section.classList.add("community");
-    section.id = "community-grid";
+    const grid = document.createElement("section");
+    grid.classList.add("community"); 
+    grid.id = "community-grid";
 
-    communitySection.append(communityHeader, section);
+    communitySection.append(communityHeader, grid);
 
-    const grid = document.getElementById("community-grid");
-
-    movies.forEach((movie) => {
+    communityMovies.forEach((movie) => {
         const movieCard = document.createElement("div");
         movieCard.className = "card";
+        
         movieCard.style.backgroundImage = `url('${movie.image}')`;
 
         const movieTitle = document.createElement("p");
         movieTitle.classList.add("movie-title");
-        movieTitle.textContent = `${movie.title}`;
+        movieTitle.textContent = movie.title;
 
         const movieInfo = document.createElement("p");
         movieInfo.classList.add("movie-info");
@@ -40,5 +45,4 @@ function displayCommunityMovies() {
     });
 }
 
-fetchFromLocalStorage();
-displayCommunityMovies();
+window.addEventListener("DOMContentLoaded", displayCommunityMovies);

@@ -1337,3 +1337,22 @@ export function setMovies(newMovies) {
 export function getMoviesCopy() {
     return movies.map(movie => ({ ...movie }));
 }
+
+export function addCommunityMovie(movieData) {
+    const newMovie = {
+        ...movieData, 
+        categories: [...(movieData.categories || []), "community"]
+    };
+
+    movies.push(newMovie);
+
+    const communityData = JSON.parse(localStorage.getItem('community_movies')) || [];
+    communityData.push(newMovie);
+    localStorage.setItem('community_movies', JSON.stringify(communityData));
+}
+
+export function initializeMovies() {
+    const savedCommunityMovies = JSON.parse(localStorage.getItem('community_movies')) || [];
+
+    movies = [...movies, ...savedCommunityMovies];
+}

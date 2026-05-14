@@ -1,3 +1,5 @@
+import { addCommunityMovie } from "../data/movies.js";
+
 const movieForm = document.querySelector('.movieflix-form');
 
 function showToast(message, type = 'error') {
@@ -37,7 +39,7 @@ movieForm.addEventListener('submit', async (e) => {
 
     const title = document.getElementById('movie-title').value.trim();
     const year = document.getElementById('movie-year').value;
-    const rating = document.getElementById('movie-age-rating').value;
+    const ageRating = document.getElementById('movie-age-rating').value;
     const genre = document.getElementById('genre').value;
     const imageUrl = document.getElementById('movie-image').value.trim();
     const type = document.querySelector('input[name="contentType"]:checked').value;
@@ -47,7 +49,7 @@ movieForm.addEventListener('submit', async (e) => {
 
     if (!title) return showToast("Title cannot be empty!");
     if (!year || year < 1888 || year > 2026) return showToast("Please enter a valid year.");
-    if (rating === "#") return showToast("Please select an age rating.");
+    if (ageRating === "#") return showToast("Please select an age rating.");
     if (!genre) return showToast("Please select a genre.");
     if (hours == 0 && minutes == 0) return showToast("Duration cannot be 0.");
     
@@ -63,20 +65,18 @@ movieForm.addEventListener('submit', async (e) => {
 
     const newMovie = {
         id: Date.now(),
-        title,
-        year,
-        rating,
-        duration: `${hours}h ${minutes}m`,
-        genre,
-        imageUrl,
-        type
+        title: title,
+        description: "",
+        year: parseInt(year), 
+        rating: 5,
+        ageRating: ageRating, 
+        duration: `${hours}h ${minutes}m`, 
+        genres: [genre], 
+        categories: [type],
+        image: imageUrl
     };
 
-    const existingMovies = JSON.parse(localStorage.getItem('movies')) || [];
-    
-    existingMovies.push(newMovie);
-    
-    localStorage.setItem('movies', JSON.stringify(existingMovies));
+    addCommunityMovie(newMovie);
 
     showToast(`${type === 'movie' ? 'Movie' : 'Series'} saved successfully!`, 'success');
     
