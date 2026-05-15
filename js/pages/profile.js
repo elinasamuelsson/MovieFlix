@@ -1,37 +1,37 @@
-import { getMoviesCopy, setMovies } from "../data/movies.js";
+import {getMoviesCopy, setMovies} from "../data/movies.js";
 import {
     saveToLocalStorage,
     fetchFromLocalStorage,
 } from "../data/localstorage.js";
-import { searchMovies } from "../search.js";
+import {searchMovies} from "../search.js";
 
 // CHANGE RATINGS ON PROFILE-PAGE MOVIES IN MY LIST
 function changeRating(e) {
-    const clicked = e.currentTarget;
-    const chosenRating = Number(clicked.dataset.rating);
-    const allRatingStars = clicked
-        .closest(".card-rating")
-        .querySelectorAll("svg");
+	const star = e.target.closest("svg[data-rating]");
+	if (!star) return;
 
-    const movieTitle = clicked
-        .closest(".card-wrapper")
-        .querySelector(".movie-title").textContent;
+	const chosenRating = Number(star.dataset.rating);
+	const allRatingStars = star.closest(".card-rating").querySelectorAll("svg");
 
-    let moviesCopy = getMoviesCopy();
-    let movie = moviesCopy.find((movie) => movie.title === movieTitle);
-    movie.rating = chosenRating;
+	const movieTitle = star
+		.closest(".card-wrapper")
+		.querySelector(".movie-title").textContent;
 
-    setMovies(moviesCopy);
-    saveToLocalStorage();
+	let moviesCopy = getMoviesCopy();
+	let movie = moviesCopy.find((movie) => movie.title === movieTitle);
+	movie.rating = chosenRating;
 
-    allRatingStars.forEach((ratingStar) => {
-        const svgPolygon = ratingStar.querySelector("polygon");
-        if (Number(ratingStar.dataset.rating) <= chosenRating) {
-            svgPolygon.setAttribute("fill", "#F5A623");
-        } else {
-            svgPolygon.setAttribute("fill", "none");
-        }
-    });
+	setMovies(moviesCopy);
+	saveToLocalStorage();
+
+	allRatingStars.forEach((ratingStar) => {
+		const svgPolygon = ratingStar.querySelector("polygon");
+		if (Number(ratingStar.dataset.rating) <= chosenRating) {
+			svgPolygon.setAttribute("fill", "#F5A623");
+		} else {
+			svgPolygon.setAttribute("fill", "none");
+		}
+	});
 }
 
 // CONSOLIDATE AND RENDER TO BOTH FAVORITES AND MY LIST
@@ -213,6 +213,6 @@ function renderCardButtons() {
 fetchFromLocalStorage();
 renderMovies();
 
-document.querySelectorAll(".card-rating svg").forEach((ratingStar) => {
-    ratingStar.addEventListener("click", changeRating);
+document.querySelectorAll(".card-rating").forEach((container) => {
+	container.addEventListener("click", changeRating);
 });
