@@ -1,8 +1,9 @@
-import { getMoviesCopy, setMovies } from "/js/data/movies.js";
+import { getMoviesCopy, setMovies } from "../data/movies.js";
 import {
     saveToLocalStorage,
     fetchFromLocalStorage,
-} from "/js/data/localstorage.js";
+} from "../data/localstorage.js";
+import { searchMovies } from "../search.js";
 
 // CHANGE RATINGS ON PROFILE-PAGE MOVIES IN MY LIST
 function changeRating(e) {

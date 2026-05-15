@@ -1,4 +1,5 @@
 import { getMoviesCopy, initializeMovies } from "../data/movies.js";
+import { searchMovies } from "../search.js";
 
 function displayCommunityMovies() {
     initializeMovies();

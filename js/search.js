@@ -1,4 +1,4 @@
-import { getMoviesCopy } from "/js/data/movies.js";
+import { getMoviesCopy } from "./data/movies.js";
 
 const searchButton = document.getElementById("search-button");
 const searchPanel = document.getElementById("search-panel");
@@ -6,7 +6,7 @@ const exitButton = document.getElementById("search-exit-button");
 const searchField = document.getElementById("search-field");
 const searchText = document.getElementById("search-text");
 const resultList = document.getElementById("result-list");
-const resultText =document.getElementById("result-text");
+const resultText = document.getElementById("result-text");
 
 
 searchButton.addEventListener("click", () => {
@@ -36,7 +36,7 @@ searchField.addEventListener("keydown", (e) => {
     }
 });
 
-function searchMovies(searchText) {
+export function searchMovies(searchText) {
     const moviesCopy = getMoviesCopy();
 
     return moviesCopy.filter(movie =>

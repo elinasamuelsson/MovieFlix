@@ -1,4 +1,5 @@
 import { addCommunityMovie } from "../data/movies.js";
+import { searchMovies } from "../search.js";
 
 const movieForm = document.querySelector('.movieflix-form');
 

@@ -1351,6 +1351,10 @@ export function addCommunityMovie(movieData) {
     localStorage.setItem('community_movies', JSON.stringify(communityData));
 }
 
+/**
+ * This function loads to merge LocalStorage
+ * back into main 'movies' array.
+ */
 export function initializeMovies() {
     const savedCommunityMovies = JSON.parse(localStorage.getItem('community_movies')) || [];
 

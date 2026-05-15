@@ -1,3 +1,5 @@
+import { searchMovies } from "../search.js";
+
 const filterBtns = document.querySelectorAll('.filter-btn');
 const slideSections = document.querySelectorAll('.slidearea');
 
