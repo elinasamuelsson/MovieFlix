@@ -10,7 +10,7 @@ let movies = [
         duration: "2h 32m",
         genres: ["Action", "Crime", "Drama"],
         categories: ["movie"],
-        image: "images/dark-knight.jpg",
+        image: "assets/movies-images/dark-knight.jpg",
     },
 
     {
@@ -24,7 +24,7 @@ let movies = [
         duration: "2h 49m",
         genres: ["Sci-Fi", "Drama", "Adventure"],
         categories: ["movie"],
-        image: "images/interstellar.jpg",
+        image: "assets/movies-images/interstellar.jpg",
     },
 
     {
@@ -38,7 +38,7 @@ let movies = [
         duration: "2h 12m",
         genres: ["Thriller", "Drama", "Dark Comedy"],
         categories: ["movie", "trending"],
-        image: "images/parasite.jpg",
+        image: "assets/movies-images/parasite.jpg",
     },
 
     {
@@ -52,7 +52,7 @@ let movies = [
         duration: "2h 55m",
         genres: ["Crime", "Drama"],
         categories: ["movie"],
-        image: "images/godfather.jpg",
+        image: "assets/movies-images/godfather.jpg",
     },
 
     {
@@ -66,7 +66,7 @@ let movies = [
         duration: "2h 8m",
         genres: ["Musical", "Romance", "Drama"],
         categories: ["movie"],
-        image: "images/lalaland.jpg",
+        image: "assets/movies-images/lalaland.jpg",
     },
 
     {
@@ -80,7 +80,7 @@ let movies = [
         duration: "2h 5m",
         genres: ["Animation", "Fantasy", "Adventure"],
         categories: ["movie"],
-        image: "images/spirited-away.jpg",
+        image: "assets/movies-images/spirited-away.jpg",
     },
 
     {
@@ -94,7 +94,7 @@ let movies = [
         duration: "2h 0m",
         genres: ["Action", "Adventure", "Sci-Fi"],
         categories: ["movie"],
-        image: "images/mad-max.jpg",
+        image: "assets/movies-images/mad-max.jpg",
     },
 
     {
@@ -108,7 +108,7 @@ let movies = [
         duration: "1h 46m",
         genres: ["Drama", "Music"],
         categories: ["movie"],
-        image: "images/whiplash.jpg",
+        image: "assets/movies-images/whiplash.jpg",
     },
 
     {
@@ -136,7 +136,7 @@ let movies = [
         duration: "2h 22m",
         genres: ["Drama"],
         categories: ["movie"],
-        image: "images/shawshank.jpg",
+        image: "assets/movies-images/shawshank.jpg",
     },
 
     {
@@ -164,7 +164,7 @@ let movies = [
         duration: "2h 34m",
         genres: ["Crime", "Drama"],
         categories: ["movie"],
-        image: "images/pulp-fiction.jpg",
+        image: "assets/movies-images/pulp-fiction.jpg",
     },
 
     {
@@ -178,7 +178,7 @@ let movies = [
         duration: "1h 39m",
         genres: ["Comedy", "Adventure", "Drama"],
         categories: ["movie"],
-        image: "images/grand-budapest.jpg",
+        image: "assets/movies-images/grand-budapest.jpg",
     },
 
     {
@@ -192,7 +192,7 @@ let movies = [
         duration: "3h 14m",
         genres: ["Romance", "Drama", "Disaster"],
         categories: ["movie"],
-        image: "images/titanic.jpg",
+        image: "assets/movies-images/titanic.jpg",
     },
 
     {
@@ -234,7 +234,7 @@ let movies = [
         duration: "2h 2m",
         genres: ["Drama", "Crime", "Thriller"],
         categories: ["movie"],
-        image: "images/joker.jpg",
+        image: "assets/movies-images/joker.jpg",
     },
 
     {
