@@ -1,447 +1,460 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Movies</title>
+		<link rel="stylesheet" href="./styles/main.css" />
+		<link rel="stylesheet" href="./styles/movies.css" />
+		<script type="module" src="./js/pages/movies.js" defer></script>
+	</head>
 
-<head>
-    <meta charset="UTF-8">
-    <title> Movies </title>
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="./styles/movies.css">
-    <script type="module" src="./js/search.js" defer></script>
-</head>
+	<body>
+		<div id="page">
+			<header>
+				<div>
+					<a class="logo" href="./index.html">MOVIEFLIX</a>
+					<nav>
+						<!-- Lägg active-nav class till era respektive html-->
+						<a href="./index.html">Home</a>
+						<a href="./tvshows.html">TV Shows</a>
+						<a href="./movies.html" class="active-nav">Movies</a>
+						<a href="./newreleases.html">New & Popular</a>
+						<a href="./profile.html">My List</a>
+					</nav>
+				</div>
 
-<body>
-    <div id="page">
-        <header>
-            <div>
-                <a class="logo" href="./index.html">MOVIEFLIX</a>
-                <nav>
-                    <!-- Lägg active-nav class till era respektive html-->
-                    <a href="./index.html">Home</a>
-                    <a href="./tvshows.html">TV Shows</a>
-                    <a href="./movies.html" class="active-nav">Movies</a>
-                    <a href="./newreleases.html">New & Popular</a>
-                    <a href="./profile.html">My List</a>
-                </nav>
-            </div>
+				<div>
+					<div id="search-container">
+						<button id="search-button" class="search-button">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="16"
+								height="16"
+								fill="currentColor"
+								class="bi bi-search"
+								viewBox="0 0 16 16"
+							>
+								<path
+									d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+								/>
+							</svg>
+						</button>
+					</div>
+					<span class="profile">U</span>
+				</div>
+			</header>
 
-            <div>
-                <div id="search-container">
-                    <button id="search-button" class="search-button">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-search" viewBox="0 0 16 16">
-                            <path
-                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                        </svg>
-                    </button>
-                </div>
-                <span class="profile">U</span>
-            </div>
-        </header>
+			<div id="search-panel" class="search-panel">
+				<div class="search-header">
+					<input type="text" id="search-field" placeholder="Search movies or tvshows..." />
+					<button id="search-exit-button" class="search-exit-button">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="16"
+							height="16"
+							fill="currentColor"
+							class="bi bi-search-exit"
+							viewBox="0 0 16 16"
+						>
+							<path
+								d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"
+							/>
+						</svg>
+					</button>
+				</div>
+				<div id="search-results" class="search-results">
+					<h4 id="result-text">
+						Result for:
+						<span id="search-text"></span>
+					</h4>
+					<div id="result-list" class="result-list"></div>
+				</div>
+			</div>
 
-        <div id="search-panel" class="search-panel">
-            <div class="search-header">
-                <input type="text" id="search-field" placeholder="Search movies or tvshows...">
-                <button id="search-exit-button" class="search-exit-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-search-exit" viewBox="0 0 16 16">
-                        <path
-                            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
-                    </svg>
-                </button>
-            </div>
-            <div id="search-results" class="search-results">
-                <h4 id="result-text">Result for:
-                    <span id=search-text></span>
-                </h4>
-                <div id="result-list" class="result-list"></div>
-            </div>
-        </div>
+			<section id="hero">
+				<h1 id="rubrik1">Movies</h1>
+				<h4 id="rubrik2">Discover thousands of movies across all genres</h4>
+			</section>
 
-        <section id="hero">
-            <h1 id="rubrik1">Movies</h1>
-            <p id="rubrik2">Discover thousands of movies across all genres</h4>
-        </section>
+			<div id="genre-filter">
+				<button class="filter-btn active" data-filter="all">All</button>
+				<button class="filter-btn" data-filter="newReleases">New Releases</button>
+				<button class="filter-btn" data-filter="trending">Trending Movies</button>
+				<button class="filter-btn" data-filter="actionAdventure">Action & Adventure</button>
+				<button class="filter-btn" data-filter="scifiFantasy">Sci-fi & Fantasy</button>
+				<button class="filter-btn" data-filter="drama">Drama</button>
+				<button class="filter-btn" data-filter="popular">Popular</button>
+			</div>
 
-        <section class="slidearea">
-            <h3 class="underrubrik">New Releases</h3>
-            <div class="slider">
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg">
-                    <div class="movie-description">
-                        <p class="title">Star Wars</p>
-                        <p class="movie-info">2026 • PG-11</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg">
-                    <div class="movie-description">
-                        <p class="title">Avatar: The Way of Water</h4>
-                        <p class="year">2022 • PG-11</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg">
-                    <div class="movie-description">
-                        <p id="title">Spirited away</h4>
-                        <p id="year">1991 • PG-11</p>
-                    </div>
-                </div>
+			<section class="slidearea" data-genre="newReleases">
+				<h3 class="underrubrik">New Releases</h3>
+				<div class="slider">
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg" />
+						<div class="movie-description">
+							<p class="title">Star Wars</p>
+							<p class="movie-info">2026 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg" />
+						<div class="movie-description">
+							<p class="title">Avatar: The Way of Water</p>
+							<p class="year">2022 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg" />
+						<div class="movie-description">
+							<p id="title">Spirited away</p>
+							<p id="year">1991 • PG-11</p>
+						</div>
+					</div>
 
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg" />
+						<div class="movie-description">
+							<p class="title">Doctor Strange in the Multiverse of Madness</p>
+							<p class="year">2022 • PG-11</p>
+						</div>
+					</div>
 
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg">
-                    <div class="movie-description">
-                        <p class="title">Doctor Strange in the Multiverse of Madness</h4>
-                        <p class="year">2022 • PG-11</p>
-                    </div>
-                </div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg" />
+						<div class="movie-description">
+							<p class="title">Barbie</p>
+							<p class="year">2023 • PG-11</p>
+						</div>
+					</div>
 
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg" />
+						<div class="movie-description">
+							<p class="title">Oppenheimer</p>
+							<p class="year">2023 • PG-11</p>
+						</div>
+					</div>
 
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg">
-                    <div class="movie-description">
-                        <p class="title">Barbie</h4>
-                        <p class="year">2023 • PG-11</p>
-                    </div>
-                </div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg" />
+						<div class="movie-description">
+							<p class="title">The SuperMario Bros. Movie</p>
+							<p class="year">2023 • PG-11</p>
+						</div>
+					</div>
+				</div>
+			</section>
 
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg">
-                    <div class="movie-description">
-                        <p class="title">Oppenheimer</h4>
-                        <p class="year">2023 • PG-11</p>
-                    </div>
-                </div>
+			<div class="slidearea" data-genre="trending">
+				<h3 class="underrubrik">Trending Movies</h3>
+				<div class="slider">
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg" />
+						<div class="movie-description">
+							<p class="title">Oppenheimer</p>
+							<p class="year">2023 • PG-11</p>
+						</div>
+					</div>
 
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/xGuOF1T3WmPsAcQEQJfnG7Ud9f8.jpg" />
+						<div class="movie-description">
+							<p class="title">Mortal Kombat</p>
+							<p class="year">1997 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg" />
+						<div class="movie-description">
+							<p class="title">Joker</p>
+							<p class="year">2019 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/2CAL2433ZeIihfX1Hb2139CX0pW.jpg" />
+						<div class="movie-description">
+							<p class="title">Le Jayenge</p>
+							<p class="year">1999 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" />
+						<div class="movie-description">
+							<p class="title">Parasite</p>
+							<p class="year">2019 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg" />
+						<div class="movie-description">
+							<p class="title">Shawshank redemption</p>
+							<p class="year">1994 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg" />
+						<div class="movie-description">
+							<p id="title">The Matrix</p>
+							<p id="year">1999 • PG-11</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg">
-                    <div class="movie-description">
-                        <p class="title">The SuperMario Bros. Movie</h4>
-                        <p class="year">2023 • PG-11</p>
-                    </div>
-                </div>
+			<div class="slidearea" data-genre="actionAdventure">
+				<h3 class="underrubrik">Action & Adventure</h3>
+				<div class="slider">
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg" />
+						<div class="movie-description">
+							<p id="title">The Dark Knight</p>
+							<p id="year">2008 • PG-11</p>
+						</div>
+					</div>
 
-            </div>
-    </div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg" />
+						<div class="movie-description">
+							<p id="title">Wonder Woman</p>
+							<p id="year">2015 • PG-11</p>
+						</div>
+					</div>
 
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/8QVDXDiOGHRcAD4oM6MXjE0osSj.jpg" />
+						<div class="movie-description">
+							<p class="title">Top Gun: Maverick</p>
+							<p class="year">2022 • PG-11</p>
+						</div>
+					</div>
 
-    <div class="slidearea">
-        <h3 class="underrubrik">Trending Movies </h2>
-            <div class="slider">
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg">
-                    <div class="movie-description">
-                        <p class="title">Oppenheimer</h4>
-                        <p class="year">2023 • PG-11</p>
-                    </div>
-                </div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg" />
+						<div class="movie-description">
+							<p class="title">The SuperMario Bros. Movie</p>
+							<p class="year">2023 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/xGuOF1T3WmPsAcQEQJfnG7Ud9f8.jpg" />
+						<div class="movie-description">
+							<p class="title">Mortal Kombat</p>
+							<p class="year">2021 • PG-11</p>
+						</div>
+					</div>
 
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/xGuOF1T3WmPsAcQEQJfnG7Ud9f8.jpg">
-                    <div class="movie-description">
-                        <p class="title">Mortal Kombat</h4>
-                        <p class="year">1997 • PG-11</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg">
-                    <div class="movie-description">
-                        <p class="title">Joker</h4>
-                        <p class="year">2019 • PG-11</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/2CAL2433ZeIihfX1Hb2139CX0pW.jpg">
-                    <div class="movie-description">
-                        <p class="title">Le Jayenge</h4>
-                        <p class="year">1999 • PG-11</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg">
-                    <div class="movie-description">
-                        <p class="title">Parasite</h4>
-                        <p class="year">2019 • PG-11</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg">
-                    <div class="movie-description">
-                        <p class="title">Shawshank redemption</h4>
-                        <p class="year">1994 • PG-11</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg">
-                    <div class="movie-description">
-                        <p id="title">The Matrix</h4>
-                        <p id="year">1999 • PG-11</p>
-                    </div>
-                </div>
-            </div>
-    </div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/6DrHO1jr3qVrViUO6s6kFiAGM7.jpg" />
+						<div class="movie-description">
+							<p class="title">Sonic the Hedgehog</p>
+							<p class="year">2020 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg" />
+						<div class="movie-description">
+							<p id="title">John Wick: 4</p>
+							<p id="year">2023 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg" />
+						<div class="movie-description">
+							<p class="title">The SuperMario Bros. Movie</p>
+							<p class="year">2023 • PG-11</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
+			<div class="slidearea" data-genre="scifiFantasy">
+				<h3 class="underrubrik">Sci-Fi & Fantasy</h3>
+				<div class="slider">
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg" />
+						<div class="movie-description">
+							<p id="title">The Matrix</p>
+							<p id="year">1999 • PG-11</p>
+						</div>
+					</div>
 
-    <div class="slidearea">
-        <h3 class="underrubrik">Action & Adventure</h3>
-        <div class="slider">
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg">
-                <div class="movie-description">
-                    <p id="title">The Dark Knight</h4>
-                    <p id="year">2008 • PG-11</p>
-                </div>
-            </div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg" />
+						<div class="movie-description">
+							<p id="title">Interstellar</p>
+							<p id="year">2014 • PG-11</p>
+						</div>
+					</div>
 
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg">
-                <div class="movie-description">
-                    <p id="title">Wonder Woman</h4>
-                    <p id="year">2015 • PG-11</p>
-                </div>
-            </div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg" />
+						<div class="movie-description">
+							<p id="title">Inception</p>
+							<p id="year">2010 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/vBZ0qvaRxqEhZwl6LWmruJqWE8Z.jpg" />
+						<div class="movie-description">
+							<p class="title">The Creator</p>
+							<p class="year">2024 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg" />
+						<div class="movie-description">
+							<p id="title">Star Wars. The Last Jedi</p>
+							<p id="year">2019 • PG-11</p>
+						</div>
+					</div>
 
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/8QVDXDiOGHRcAD4oM6MXjE0osSj.jpg">
-                <div class="movie-description">
-                    <p class="title">Top Gun: Maverick</h4>
-                    <p class="year">2022 • PG-11</p>
-                </div>
-            </div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg" />
+						<div class="movie-description">
+							<p id="title">John Wick: 4</p>
+							<p id="year">2023 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/8tZYtuWezp8JbcsvHYO0O46tFbo.jpg" />
+						<div class="movie-description">
+							<p id="title">Mad Max. Fury Road</p>
+							<p id="year">2021 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/8QVDXDiOGHRcAD4oM6MXjE0osSj.jpg" />
+						<div class="movie-description">
+							<p class="title">Alienoid</p>
+							<p class="year">2022 • PG-11</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg">
-                <div class="movie-description">
-                    <p class="title">The SuperMario Bros. Movie</h4>
-                    <p class="year">2023 • PG-11</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/xGuOF1T3WmPsAcQEQJfnG7Ud9f8.jpg">
-                <div class="movie-description">
-                    <p class="title">Mortal Kombat</h4>
-                    <p class="year">2021 • PG-11</p>
-                </div>
-            </div>
+			<div class="slidearea" data-genre="drama">
+				<h3 class="underrubrik">Drama</h3>
+				<div class="slider">
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" />
+						<div class="movie-description">
+							<p id="title">Parasite</p>
+							<p id="year">2019 • PG-11</p>
+						</div>
+					</div>
 
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/6DrHO1jr3qVrViUO6s6kFiAGM7.jpg">
-                <div class="movie-description">
-                    <p class="title">Sonic the Hedgehog</h4>
-                    <p class="year">2020 • PG-11</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg">
-                <div class="movie-description">
-                    <p id="title">John Wick: 4</h4>
-                    <p id="year">2023 • PG-11</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/qNBAXBIQlnOThrVvA6mA2B5ggV6.jpg">
-                <div class="movie-description">
-                    <p class="title">The SuperMario Bros. Movie</h4>
-                    <p class="year">2023 • PG-11</p>
-                </div>
-            </div>
-        </div>
-    </div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/saHP97rTPS5eLmrLQEcANmKrsFl.jpg" />
+						<div class="movie-description">
+							<p id="title">Forrest Gump</p>
+							<p id="year">1994 • PG-11</p>
+						</div>
+					</div>
 
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg" />
+						<div class="movie-description">
+							<p id="title">Titanic</p>
+							<p id="year">1997 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/q719jXXEzOoYaps6babgKnONONX.jpg" />
+						<div class="movie-description">
+							<p id="title">YOUR NAME.</p>
+							<p id="year">2016 • PG-11</p>
+						</div>
+					</div>
 
-    <div class="slidearea">
-        <h3 class="underrubrik">Sci-Fi & Fantasy</h3>
-        <div class="slider">
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg" />
+						<div class="movie-description">
+							<p id="title">Spirited away</p>
+							<p id="year">1991 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/2CAL2433ZeIihfX1Hb2139CX0pW.jpg" />
+						<div class="movie-description">
+							<p class="title">Le Jayenge</p>
+							<p class="year">1999 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg" />
+						<div class="movie-description">
+							<p class="title">Barbie</p>
+							<p class="year">2023 • PG-11</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg">
-                <div class="movie-description">
-                    <p id="title">The Matrix</h4>
-                    <p id="year">1999 • PG-11</p>
-                </div>
-            </div>
+			<div class="slidearea" data-genre="popular">
+				<h3 class="underrubrik">Popular on MovieFlix</h3>
+				<div class="slider">
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg" />
+						<div class="movie-description">
+							<p class="title">Joker</p>
+							<p class="year">2019 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg" />
+						<div class="movie-description">
+							<p id="title">The Matrix</p>
+							<p id="year">1999 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg" />
+						<div class="movie-description">
+							<p class="title">Oppenheimer</p>
+							<p class="year">2023 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" />
+						<div class="movie-description">
+							<p id="title">Parasite</p>
+							<p id="year">2019 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg" />
+						<div class="movie-description">
+							<p id="title">Shawshank Redemption</p>
+							<p id="year">2008 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg" />
+						<div class="movie-description">
+							<p id="title">Titanic</p>
+							<p id="year">1997 • PG-11</p>
+						</div>
+					</div>
+					<div class="item">
+						<img src="https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg" />
+						<div class="movie-description">
+							<p id="title">John Wick: 4</p>
+							<p id="year">2023 • PG-11</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg">
-                <div class="movie-description">
-                    <p id="title">Interstellar</h4>
-                    <p id="year">2014 • PG-11</p>
-                </div>
-            </div>
-
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg">
-                <div class="movie-description">
-                    <p id="title">Inception</h4>
-                    <p id="year">2010 • PG-11</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/vBZ0qvaRxqEhZwl6LWmruJqWE8Z.jpg">
-                <div class="movie-description">
-                    <p class="title">The Creator</h4>
-                    <p class="year">2024 • PG-11</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/kOVEVeg59E0wsnXmF9nrh6OmWII.jpg">
-                <div class="movie-description">
-                    <p id="title">Star Wars. The Last Jedi</h4>
-                    <p id="year">2019 • PG-11</p>
-                </div>
-            </div>
-
-
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg">
-                <div class="movie-description">
-                    <p id="title">John Wick: 4</h4>
-                    <p id="year">2023 • PG-11</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/8tZYtuWezp8JbcsvHYO0O46tFbo.jpg">
-                <div class="movie-description">
-                    <p id="title">Mad Max. Fury Road</h4>
-                    <p id="year">2021 • PG-11</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/8QVDXDiOGHRcAD4oM6MXjE0osSj.jpg">
-                <div class="movie-description">
-                    <p class="title">Alienoid</h4>
-                    <p class="year">2022 • PG-11</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="slidearea">
-        <h3 class="underrubrik">Drama</h3>
-        <div class="slider">
-
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg">
-                <div class="movie-description">
-                    <p id="title">Parasite</h4>
-                    <p id="year">2019 • PG-11</p>
-                </div>
-            </div>
-
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/saHP97rTPS5eLmrLQEcANmKrsFl.jpg">
-                <div class="movie-description">
-                    <p id="title">Forrest Gump</h4>
-                    <p id="year">1994 • PG-11</p>
-                </div>
-            </div>
-
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg">
-                <div class="movie-description">
-                    <p id="title">Titanic</h4>
-                    <p id="year">1997 • PG-11</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/q719jXXEzOoYaps6babgKnONONX.jpg">
-                <div class="movie-description">
-                    <p id="title">YOUR NAME.</h4>
-                    <p id="year">2016 • PG-11</p>
-                </div>
-            </div>
-
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg">
-                <div class="movie-description">
-                    <p id="title">Spirited away</h4>
-                    <p id="year">1991 • PG-11</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/2CAL2433ZeIihfX1Hb2139CX0pW.jpg">
-                <div class="movie-description">
-                    <p class="title">Le Jayenge</h4>
-                    <p class="year">1999 • PG-11</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg">
-                <div class="movie-description">
-                    <p class="title">Barbie</h4>
-                    <p class="year">2023 • PG-11</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="slidearea">
-        <h3 class="underrubrik">Popular on MovieFlix </h2>
-            <div class="slider">
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg">
-                    <div class="movie-description">
-                        <h4 class="title">Joker</h4>
-                        <p class="year">2019 • PG-11</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg">
-                    <div class="movie-description">
-                        <h4 id="title">The Matrix</h4>
-                        <p id="year">1999 • PG-11</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/ptpr0kGAckfQkJeJIt8st5dglvd.jpg">
-                    <div class="movie-description">
-                        <p class="title">Oppenheimer</h4>
-                        <p class="year">2023 • PG-11 </p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg">
-                    <div class="movie-description">
-                        <h4 id="title">Parasite</h4>
-                        <p id="year">2019 • PG-11</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg">
-                    <div class="movie-description">
-                        <h4 id="title">Shawshank Redemption</h4>
-                        <p id="year">2008 • PG-11</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg">
-                    <div class="movie-description">
-                        <h4 id="title">Titanic</h4>
-                        <p id="year">1997 • PG-11</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="https://image.tmdb.org/t/p/w500/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg">
-                    <div class="movie-description">
-                        <h4 id="title">John Wick: 4</h4>
-                        <p id="year">2023 • PG-11</p>
-                    </div>
-                </div>
-            </div>
-    </div>
-    </section>
-    <footer>
-        <nav>
-            <a href="#">Audio and Subtitles</a>
-            <a href="#">Help Center</a>
-            <a href="#">Gift Cards</a>
-            <a href="#">Media Center</a>
-            <a href="./form.html">Publish a Movie</a>
-        </nav>
-        <p class="copyright">© 2026 MovieFlix, Inc.</p>
-    </footer>
-    </div>
-</body>
+			<footer>
+				<nav>
+					<a href="#">Audio and Subtitles</a>
+					<a href="#">Help Center</a>
+					<a href="#">Gift Cards</a>
+					<a href="#">Media Center</a>
+					<a href="./form.html">Publish a Movie</a>
+				</nav>
+				<p class="copyright">© 2026 MovieFlix, Inc.</p>
+			</footer>
+		</div>
+	</body>
+</html>
