@@ -25,11 +25,20 @@ searchField.addEventListener("keydown", (e) => {
         searchText.textContent = inputText;
 
         const results = searchMovies(inputText);
-        console.log("RESLUT" + results);
+        console.log(results);
 
         if (results.length === 0) {
             resultList.innerHTML = "<p>No matching result was found... Try agin!</p>";
+            searchPanel.style.height = "160px";
             return;
+        }
+
+        if (results.length <= 3) {
+            searchPanel.style.height = "330px";
+        }
+        
+        if (results.length > 6) {
+            searchPanel.style.height = "700px";
         }
 
         collectMovies(results);

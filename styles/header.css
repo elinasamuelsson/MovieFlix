@@ -87,12 +87,12 @@ header > div > .profile {
     top: 0;
     right: -400px;
     width: 350px;
-    height: 450px;
+    height: 70px;
     background: black;
+    color: white;
     padding: 30px;
     transition: right 0.6s ease;
     z-index: 1000;
-
 }
 
 #search-field {
@@ -147,7 +147,7 @@ header > div > .profile {
 
 .result-card p {
     width: 80px;
+    color: white;
 }
-
 
 
